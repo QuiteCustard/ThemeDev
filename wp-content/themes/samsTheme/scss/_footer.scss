@@ -1,0 +1,36 @@
+.footer {
+    background-color:var(--footer);
+    display: flex;
+    flex-direction: column;
+    padding:1rem;
+
+    img {
+        width:240px;
+        height:240px;
+    }
+}
+
+.widgets {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    align-items: center;
+    justify-content: space-evenly;
+
+    @media (min-width:1024px) {
+        flex-direction: row;
+    }
+    
+    &.centered {
+        flex-direction: column;
+        align-items: center;
+    }
+    > * {
+        padding:0.5rem;
+    }
+}
+
+
+.copyright {
+    align-self: center;
+}

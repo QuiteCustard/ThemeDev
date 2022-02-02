@@ -1,0 +1,276 @@
+/*
+Theme Name: Sams Theme
+Author: Sam Edwards
+Description: Template for Cornish holidays
+Version: 0.0.1
+Tags: responsive
+*/
+html {
+  font-family: 'arial', sans-serif;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--body);
+  color: var(--text);
+}
+
+ul {
+  list-style: none;
+}
+
+:is(a, button, input, textarea, summary):focus {
+  box-shadow: 0 0 0 2px #007fd4;
+  outline: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading);
+}
+
+h1, h2, h3 {
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 55px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+p {
+  font-size: 17px;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+  display: block;
+  margin: 5px auto 5px auto;
+}
+
+.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+
+.aligncenter {
+  display: block;
+  margin: 5px auto 5px auto;
+}
+
+@media only screen and (max-width: 480px) {
+  .single .alignright,
+  .single .alignleft {
+    float: none;
+  }
+}
+
+a img.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-caption {
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  max-width: 96%;
+  /* Image does not overflow the content area */
+  padding: 5px 3px 10px;
+  text-align: center;
+}
+
+.wp-caption.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft {
+  margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright {
+  margin: 5px 0 20px 20px;
+}
+
+.wp-caption img {
+  border: 0 none;
+  height: auto;
+  margin: 0;
+  max-width: 98.5%;
+  padding: 0;
+  width: auto;
+}
+
+.wp-caption p.wp-caption-text {
+  font-size: 11px;
+  line-height: 17px;
+  margin: 0;
+  padding: 0 4px 5px;
+}
+
+.header {
+  background-color: var(--header);
+  z-index: 1;
+  transition: 300ms;
+  border-bottom: var(--border);
+  margin-bottom: 10px;
+}
+
+.header.sticky {
+  position: sticky;
+  top: 0;
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.main-nav.centered {
+  flex-direction: column;
+}
+
+.site-home, .menu-main-container {
+  flex: 100%;
+}
+
+@media (min-width: 1024px) {
+  .site-home, .menu-main-container {
+    flex: unset;
+  }
+}
+
+.site-home {
+  display: inline-flex;
+  justify-content: center;
+}
+
+.main-nav .menu {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  padding: 10px;
+}
+
+.menu-item {
+  padding: 10px;
+}
+
+.menu-item a {
+  transition: 0.3s;
+}
+
+.menu-item a:hover, .menu-item a:focus {
+  color: var(--hover);
+}
+
+.footer {
+  background-color: var(--footer);
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.footer img {
+  width: 240px;
+  height: 240px;
+}
+
+.widgets {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+@media (min-width: 1024px) {
+  .widgets {
+    flex-direction: row;
+  }
+}
+
+.widgets.centered {
+  flex-direction: column;
+  align-items: center;
+}
+
+.widgets > * {
+  padding: 0.5rem;
+}
+
+.copyright {
+  align-self: center;
+}
+
+.actual-content {
+  max-width: 1500px;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+.actual-content.full-width {
+  max-width: 100%;
+  margin: 1rem;
+}
+
+.logo {
+  max-width: 200px;
+  max-height: 300px;
+}
+
+.separator {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}

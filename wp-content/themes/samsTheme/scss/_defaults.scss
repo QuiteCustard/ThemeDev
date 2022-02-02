@@ -1,0 +1,42 @@
+/*
+Theme Name: Sams Theme
+Author: Sam Edwards
+Description: Template for Cornish holidays
+Version: 0.0.1
+Tags: responsive
+*/
+
+html {
+    font-family: 'arial', sans-serif;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--body);
+    color:var(--text);
+}
+
+
+ul {
+    list-style: none;
+}
+
+// Accessability
+:is(a, button, input, textarea, summary):focus {
+    box-shadow: 0 0 0 2px rgb(0, 127, 212);
+    outline: 0;
+}
+@import '_typography';
+@import '_wordpress_layout';

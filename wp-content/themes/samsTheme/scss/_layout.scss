@@ -1,0 +1,14 @@
+@import '_header';
+@import '_footer';
+
+.actual-content {
+    max-width: 1500px;
+    margin:auto;
+    padding: 0 1rem;
+
+    &.full-width {
+        max-width: 100%;
+        margin:1rem;
+    }
+}
+
