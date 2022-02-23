@@ -24,8 +24,11 @@ html {
 }
 
 body {
-    background-color: var(--body);
+    background-color: var(--body-colour);
     color:var(--text);
+    background-image: var(--body-img);
+    background-repeat:none;
+    background-size: cover;
 }
 
 

@@ -1,7 +1,7 @@
 (function ($) {
     // Sections
     // Shows a live preview of changing the body colour of the theme
-    wp.customize('samsTheme_colour_body', function (colour) {
+    wp.customize('samsTheme_radio_control_background', function (colour) {
         colour.bind(function (updated_colour) {
             $('body').css('background-color', updated_colour);
         });
@@ -13,6 +13,7 @@
             $('.header').css('background-color', updated_colour);
         });
     });
+    
     // Shows a live preview of changing the header colour of the theme
     wp.customize('samsTheme_colour_footer', function (colour) {
         colour.bind(function (updated_colour) {
