@@ -1,7 +1,11 @@
+.site-home {
+    padding: var(--logo-padding);
+}
+
 .logo {
-   // width:100%;
     max-width: 200px;
     max-height: 300px;
+    border-radius: var(--border-radius);
 }
 
 .separator {

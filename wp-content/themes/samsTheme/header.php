@@ -9,9 +9,9 @@
 <?php wp_head();?>
 </head>
 <body class>
-  <header class="header <?php echo apply_filters( 'samsTheme_header_sticky_css', 'default' );?>">
+  <header class="header <?php echo apply_filters('samsTheme_sticky_header_css', 'default');?>">
 
-<nav class="main-nav <?php echo apply_filters( 'samsTheme_header_layout_css', 'default' ); apply_filters( 'samsTheme_header_layout_pos', 'default' ); ?>">
+<nav class="main-nav <?php echo apply_filters('samsTheme_header_layout_css', 'default'), ' ', apply_filters('samsTheme_header_width_css', 'full-width');?>">
 <?php if( has_custom_logo() ):
     // Get Custom Logo URL
     $custom_logo_id = get_theme_mod( 'custom_logo' );

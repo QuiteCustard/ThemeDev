@@ -2,7 +2,7 @@
     background-color:var(--header);
     z-index: 1;
     transition: 300ms;
-    border-bottom: var(--border);
+    border-bottom: var(--border-colour);
     margin-bottom: 10px;
 
     &.sticky {
