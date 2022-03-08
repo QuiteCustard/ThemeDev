@@ -9,12 +9,12 @@ This was a project I created in my third year of university. My assignment was t
 - Border radius for logo
 - Padding for logo
 - Colour options for:
--- Body
--- Header
--- Footer
--- Headings
--- Text
--- Links
--- Link hovers
+* Body
+* Header
+* Footer
+* Headings
+* Text
+* Links
+* Link hovers
 - Layout options for:
---
+
