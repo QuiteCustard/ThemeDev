@@ -22,4 +22,4 @@ This was a project I created in my third year of university. My assignment was t
    * Footer centred/not centred
    * Body width (1500px or full width)
 
-*This is still under development
+*This is still under development*
