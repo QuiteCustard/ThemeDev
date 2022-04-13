@@ -5,6 +5,8 @@
 .logo {
     max-width: 200px;
     max-height: 300px;
+    width:var(--width);
+    height:var(--height);
     border-radius: var(--border-radius);
 }
 

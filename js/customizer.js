@@ -13,7 +13,7 @@
             $('.header').css('background-color', updated_colour);
         });
     });
-    
+
     // Shows a live preview of changing the header colour of the theme
     wp.customize('samsTheme_footer_colour', function (colour) {
         colour.bind(function (updated_colour) {
@@ -26,7 +26,7 @@
     wp.customize('samsTheme_text_colour', function (colour) {
         colour.bind(function (updated_colour) {
             $('body').css('color', updated_colour);
-            
+
         });
     });
 
@@ -63,8 +63,22 @@
         });
     });
 
-     // Shows a live preview of changing the border radius of the logo
-     wp.customize('samsTheme_border_radius', function (radius) {
+    // Shows a live preview of changing the width of the logo
+    wp.customize('samsTheme_logo_width', function (width) {
+        width.bind(function (updated_width) {
+            $('.logo').css('width', updated_width);
+        });
+    });
+
+    // Shows a live preview of changing the height of the logo
+    wp.customize('samsTheme_logo_height', function (height) {
+        height.bind(function (updated_height) {
+            $('.logo').css('height', updated_height);
+        });
+    });
+    
+    // Shows a live preview of changing the border radius of the logo
+    wp.customize('samsTheme_border_radius', function (radius) {
         radius.bind(function (updated_radius) {
             $('.logo').css('border-radius', updated_radius);
         });

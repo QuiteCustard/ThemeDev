@@ -169,6 +169,43 @@ function samsTheme_customize_register($wp_customize)
             return false;
         }
     }
+    // Add a setting for logo width
+    $wp_customize->add_setting('samsTheme_logo_width', array(
+        'default' => '50px',
+        'transport' => 'postMessage',
+    ));
+
+    // Add a control for logo width
+    $wp_customize->add_control('samsTheme_logo_width', array(
+        'label' => __('Logo width','samsTheme'),
+        'section' => 'samsTheme_style_options',
+        'description' => __('This will decide the width for the logo', 'samsTheme'),
+        'type' => 'select',
+        'choices' => array(
+            '50px' => 'Default (50px)',
+            '100px' =>'100px',
+            '150px' => '150px',
+        ),
+    ));
+
+    // Add a setting for logo height
+    $wp_customize->add_setting('samsTheme_logo_height', array(
+        'default' => '50px',
+        'transport' => 'postMessage',
+    ));
+
+    // Add a control for logo height
+    $wp_customize->add_control('samsTheme_logo_height', array(
+        'label' => __('Logo height','samsTheme'),
+        'section' => 'samsTheme_style_options',
+        'description' => __('This will decide the height for the logo', 'samsTheme'),
+        'type' => 'select',
+        'choices' => array(
+            '50px' => 'Default (50px)',
+            '100px' => '100px',
+            '150px' => '150px',
+        ),
+    ));
 
     // Add a setting for logo border radius
     $wp_customize->add_setting('samsTheme_border_radius', array(
@@ -319,8 +356,6 @@ function samsTheme_customize_register($wp_customize)
     // FONT CHOICE HERE
 
     // FONT CHOICE HERE
-
-    
 
     // Separator
     $wp_customize->add_setting('samsTheme_separator_four', array(
@@ -504,6 +539,8 @@ function samsTheme_customization_css_colours()
         $border_colour = '1px solid  #' . get_option('samsTheme_border_colour');
     }
 
+    $logo_width = get_theme_mod('samsTheme_logo_width');
+    $logo_height = get_theme_mod('samsTheme_logo_height');
     $border_radius = get_theme_mod('samsTheme_border_radius');
     $logo_padding = get_theme_mod('samsTheme_logo_padding');
 ?>
@@ -521,6 +558,8 @@ function samsTheme_customization_css_colours()
         --border-colour:<?php echo $border_colour; ?>;
         --border-radius:<?php echo $border_radius; ?>;
         --logo-padding:<?php echo $logo_padding; ?>;
+        --width:<?php echo $logo_width;?>;
+        --height:<?php echo $logo_height;?>
     }
 </style>
 

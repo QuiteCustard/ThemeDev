@@ -31,7 +31,6 @@ body {
     background-size: cover;
 }
 
-
 ul {
     list-style: none;
 }
@@ -41,5 +40,6 @@ ul {
     box-shadow: 0 0 0 2px rgb(0, 127, 212);
     outline: 0;
 }
+
 @import '_typography';
 @import '_wordpress_layout';
