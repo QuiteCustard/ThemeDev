@@ -1,16 +1,18 @@
 @import '_header';
 @import '_footer';
 
-.actual-content {
-    padding: 0 1rem;
-}
 
 .boxed {
     margin:auto;
     max-width: 1500px;
 }
 
-.full-width {
+.full-width > *:not(.full) {
     max-width: 100%;
-    margin:0 1rem;
+    margin:0 2rem;
+}
+
+.full > img {
+    width: 100%;
+    height:100%;
 }

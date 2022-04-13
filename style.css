@@ -6,7 +6,6 @@ Version: 0.0.1
 Tags: responsive
 */
 html {
-  font-family: 'arial', sans-serif;
   scroll-behavior: smooth;
   box-sizing: border-box;
 }
@@ -17,17 +16,14 @@ html {
   box-sizing: inherit;
 }
 
-* {
-  padding: 0;
-  margin: 0;
-}
-
 body {
   background-color: var(--body-colour);
   color: var(--text);
   background-image: var(--body-img);
   background-repeat: no-repeat;
   background-size: cover;
+  padding: 0;
+  margin: 0;
 }
 
 ul {
@@ -41,10 +37,11 @@ ul {
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--heading);
+  font-family: 'Montserrat', sans-serif;
 }
 
 h1, h2, h3 {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 h1 {
@@ -61,12 +58,14 @@ h3 {
 
 p {
   font-size: 17px;
+  font-family: 'roboto', sans-serif;
 }
 
 a {
   color: var(--link);
   text-decoration: none;
   cursor: pointer;
+  font-family: 'roboto', sans-serif;
 }
 
 .alignnone {
@@ -160,7 +159,7 @@ a img.aligncenter {
 
 .header {
   background-color: var(--header);
-  z-index: 1;
+  z-index: 10;
   transition: 300ms;
   border-bottom: var(--border-colour);
   margin-bottom: 10px;
@@ -256,18 +255,19 @@ a img.aligncenter {
   align-self: center;
 }
 
-.actual-content {
-  padding: 0 1rem;
-}
-
 .boxed {
   margin: auto;
   max-width: 1500px;
 }
 
-.full-width {
+.full-width > *:not(.full) {
   max-width: 100%;
-  margin: 0 1rem;
+  margin: 0 2rem;
+}
+
+.full > img {
+  width: 100%;
+  height: 100%;
 }
 
 .site-home {
@@ -286,4 +286,8 @@ a img.aligncenter {
   width: 100px;
   height: 100px;
   background-color: red;
+}
+
+.full {
+  width: 100%;
 }
