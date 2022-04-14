@@ -71,3 +71,6 @@ function samsTheme_register_sidebars() {
     add_action( 'widgets_init', 'samsTheme_register_sidebars' );	
 
 require_once( get_stylesheet_directory() . '/includes/customizer.php' );
+
+// Disable contact forms 7 br and p tags
+add_filter( 'wpcf7_autop_or_not', '__return_false' );

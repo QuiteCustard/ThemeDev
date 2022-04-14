@@ -56,7 +56,7 @@ h3 {
   font-size: 20px;
 }
 
-p {
+p, label {
   font-size: 17px;
   font-family: 'roboto', sans-serif;
 }
@@ -162,7 +162,6 @@ a img.aligncenter {
   z-index: 10;
   transition: 300ms;
   border-bottom: var(--border-colour);
-  margin-bottom: 10px;
 }
 
 .header.sticky {
@@ -255,14 +254,14 @@ a img.aligncenter {
   align-self: center;
 }
 
-.boxed {
-  margin: auto;
-  max-width: 1500px;
-}
-
 .full-width > *:not(.full) {
   max-width: 100%;
   margin: 0 2rem;
+}
+
+.boxed, .full-width > .boxed {
+  margin: auto;
+  max-width: 1500px;
 }
 
 .full > img {
@@ -290,4 +289,13 @@ a img.aligncenter {
 
 .full {
   width: 100%;
+}
+
+.rounded {
+  border-radius: 10px;
+}
+
+.reset {
+  padding: 0;
+  margin: 0;
 }
