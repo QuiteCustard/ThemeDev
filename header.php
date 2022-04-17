@@ -11,10 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 <?php wp_head();?>
 </head>
-<body class>
+<body>
   <header class="header <?php echo apply_filters('samsTheme_sticky_header_css', 'default');?>">
-
-<nav class="main-nav <?php echo apply_filters('samsTheme_header_layout_css', 'default'), ' ', apply_filters('samsTheme_header_width_css', 'full-width');?>">
+    <nav class="main-nav <?php echo apply_filters('samsTheme_header_layout_css', 'default'), ' ', apply_filters('samsTheme_header_width_css', 'full-width');?>">
 <?php if( has_custom_logo() ):
     // Get Custom Logo URL
     $custom_logo_id = get_theme_mod( 'custom_logo' );
@@ -32,5 +31,5 @@
         'theme_location'  => 'header',
     ) );
 ?>
-</nav>
+    </nav>
     </header>

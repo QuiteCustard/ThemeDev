@@ -41,12 +41,11 @@
     display: flex;
     list-style-type: none;
     justify-content: center;
-    padding:10px;
+    gap:10px;
+    padding:10px 0;
 }
 
 .menu-item {
-    padding:10px;
-
     a {
         transition: 0.3s;
 

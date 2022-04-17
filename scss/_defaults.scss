@@ -18,8 +18,8 @@ html {
 }
 
 * {
-  //  padding: 0;
-  //  margin: 0;
+ padding: 0;
+ margin: 0;
 }
 
 body {
@@ -28,8 +28,6 @@ body {
     background-image: var(--body-img);
     background-repeat:no-repeat;
     background-size: cover;
-    padding: 0;
-    margin: 0;
 }
 
 ul {

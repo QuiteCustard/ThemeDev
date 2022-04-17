@@ -571,7 +571,7 @@ add_action('wp_head', 'samsTheme_customization_css_colours');
 // Sticky header filter
 function samsTheme_sticky_header($header)
 {
-    $header = get_option('samsTheme_header_position');
+    $header = get_theme_mod('samsTheme_header_position');
     return $header;
 }
 add_filter('samsTheme_sticky_header_css', 'samsTheme_sticky_header');

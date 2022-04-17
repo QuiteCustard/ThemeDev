@@ -1,0 +1,38 @@
+#booking-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.booking-form form {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    gap: 10px;
+
+    &>label {
+        display: flex;
+        flex-direction: column;
+
+        input,
+        select {
+            width: 100%;
+            padding: 0.5rem;
+        }
+    }
+
+
+    .wpcf7-spinner {
+        display: none;
+    }
+
+    .button {
+        padding: 10px;
+        background-color: white;
+        border: 0;
+        border-radius: 5px;
+    }
+}
+
+.disabled {
+    pointer-events: none;
+}
