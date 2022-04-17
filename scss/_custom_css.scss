@@ -1,13 +1,19 @@
 #booking-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    box-shadow: rgb(0 0 0 / 50%) 0px 1px 3px 0px;
+    margin: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px 0px;
+
+    @media (min-width:1024px){
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
 }
 
 .booking-form form {
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-end;
-    justify-content: space-evenly;
+    justify-content: center;
     gap: 10px;
 
     &>label {
@@ -18,12 +24,11 @@
         select {
             width: 100%;
             padding: 0.5rem;
-            border:0;
+            border:1px solid #a7b3bb;
             border-radius: 5px;
             cursor:pointer;
         }
     }
-
 
     .wpcf7-spinner {
         display: none;
@@ -34,6 +39,10 @@
         background-color: white;
         border: 0;
         border-radius: 5px;
+    }
+
+    @media (min-width:1024px){
+        justify-content: space-evenly;
     }
 }
 
