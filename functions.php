@@ -19,7 +19,6 @@ function samsTheme_setup() {
         'header'   => 'Header Menu',
         'footer'   => 'Footer menu',
     ) );
-    
 
 }
 add_action( 'after_setup_theme', 'samsTheme_setup');
