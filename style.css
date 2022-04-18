@@ -204,7 +204,7 @@ a img.aligncenter {
   list-style-type: none;
   justify-content: center;
   gap: 10px;
-  padding: 10px 0;
+  padding: 10px;
 }
 
 .menu-item a {
@@ -298,11 +298,11 @@ a img.aligncenter {
 .menu ul {
   display: flex;
   gap: 10px;
+  padding: 0 10px;
 }
 
 #booking-container {
   margin: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px 0px;
 }
 
 @media (min-width: 1024px) {
@@ -353,4 +353,12 @@ a img.aligncenter {
 
 .disabled {
   pointer-events: none;
+}
+
+.shadow {
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px 0px;
+}
+
+.no-margin {
+  margin: 0;
 }

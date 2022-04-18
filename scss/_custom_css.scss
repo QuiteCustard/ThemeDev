@@ -1,12 +1,10 @@
 #booking-container {
     margin: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px 0px;
 
     @media (min-width:1024px){
         max-width: 1000px;
         margin: 0 auto;
     }
-
 }
 
 .booking-form form {
@@ -48,4 +46,12 @@
 
 .disabled {
     pointer-events: none;
+}
+
+.shadow {
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px 0px;
+}
+
+.no-margin {
+    margin:0;
 }
