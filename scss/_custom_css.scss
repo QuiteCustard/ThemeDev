@@ -1,57 +1,62 @@
 #booking-container {
     margin: 1rem;
 
-    @media (min-width:1024px){
+    @media (min-width:1024px) {
         max-width: 1000px;
         margin: 0 auto;
     }
 }
 
-.booking-form form {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: center;
-    gap: 10px;
+#form-container {
+    background-color: var(--primary);
+    max-width: 1000px;
+    margin: 20px auto;
+    border-radius: 5px;
+    padding:1rem;
 
-    &>label {
+    h2 {
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .booking-form {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 10px;
 
-        input,
-        select {
-            width: 100%;
-            padding: 0.5rem;
-            border:1px solid #a7b3bb;
+        &>label {
+            display: flex;
+            flex-direction: column;
+
+            input,
+            select {
+                width: 100%;
+                padding: 0.5rem;
+                border: 1px solid #a7b3bb;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+
+        .button {
+            padding: 10px;
+            background-color: white;
+            border: 0;
             border-radius: 5px;
-            cursor:pointer;
+
+            &.disabled {
+                pointer-events: none;
+            }
+        }
+
+        @media (min-width:1024px) {
+            justify-content: space-evenly;
         }
     }
-
-    .wpcf7-spinner {
-        display: none;
-    }
-
-    .button {
-        padding: 10px;
-        background-color: white;
-        border: 0;
-        border-radius: 5px;
-    }
-
-    @media (min-width:1024px){
-        justify-content: space-evenly;
-    }
-}
-
-.disabled {
-    pointer-events: none;
 }
 
 .shadow {
     box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px 0px;
-}
-
-.no-margin {
-    margin:0;
 }

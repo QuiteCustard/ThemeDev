@@ -8,6 +8,13 @@
     });
 
     // Shows a live preview of changing the header colour of the theme
+    wp.customize('samsTheme_primary_colour', function (colour) {
+        colour.bind(function (updated_colour) {
+            $('#form-container').css('background-color', updated_colour);
+        });
+    });
+
+    // Shows a live preview of changing the header colour of the theme
     wp.customize('samsTheme_header_colour', function (colour) {
         colour.bind(function (updated_colour) {
             $('.header').css('background-color', updated_colour);

@@ -94,6 +94,22 @@ function samsTheme_customize_register($wp_customize)
         }
     }
 
+    // Add colour setting for primary colour
+    $wp_customize->add_setting('samsTheme_primary_colour', array(
+        'default' => 'f78da7',
+        'type' => 'option',
+        'sanitize_callback' => 'sanitize_hex_color_no_hash',
+        'sanitize_js_callback' => 'maybe_hash_hex_color',
+        'transport' => 'postMessage',
+    ));
+
+    // Add hidden control that displays on body background being set to colour
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'samsTheme_primary_colour', array(
+        'label' => __('Primary colour', 'samsTheme'),
+        'section' => 'samsTheme_style_options',
+        'settings' => 'samsTheme_primary_colour',
+    )));
+
     // Separator
     // Add a setting for separator
     $wp_customize->add_setting('samsTheme_separator', array(
@@ -516,12 +532,14 @@ function samsTheme_customization_css_colours()
 {
     //Get Options from the Customize Panel
     $body_colour = get_option('samsTheme_body_colour');
+    $primary_colour = get_option('samsTheme_primary_colour');
     $header_colour = get_option('samsTheme_header_colour');
     $footer_colour = get_option('samsTheme_footer_colour');
     $text_colour = get_option('samsTheme_text_colour');
     $heading_colour = get_option('samsTheme_heading_colour');
     $link_colour = get_option('samsTheme_link_colour');
     $hover_colour = get_option('samsTheme_hover_colour');
+
 
     if (get_theme_mod('samsTheme_background') == 'colour') {
         $body_colour = get_theme_mod('samsTheme_background_colour');
@@ -549,6 +567,7 @@ function samsTheme_customization_css_colours()
     :root {
         --body-colour:#<?php echo $body_colour; ?>;
         --body-img:<?php echo 'url(' . $body_img . ')'; ?>;
+        --primary:#<?php echo $primary_colour; ?>;
         --header:#<?php echo $header_colour; ?>;
         --footer:#<?php echo $footer_colour; ?>;
         --text:#<?php echo $text_colour; ?>;
