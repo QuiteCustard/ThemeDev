@@ -35,24 +35,40 @@ get_header();
             <div class="details">
                 <h2>Basic information</h2>
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Heading</th>
-                        </tr>
-                    </thead>
                     <tbody>
                         <tr>
                             <td>Location:</td>
-                            <td></td>
+                            <td><?= get_field("location");?></td>
                         </tr>
                         <tr>
-                            <td>Sleeping space:</td>
-                            <td><?php echo get_field('sleeps'); ?></td>
+                            <td>How many people can sleep here:</td>
+                            <td>
+                                <?= $sleep = get_field("sleeps") . ' '; if($sleep > 1){echo 'people';}else{echo 'person';}?>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="gallery"></div>
+            <div class="gallery">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+            <?php
+                $gallery = get_field('gallery');
+                if ($gallery) {
+                    // Get amount of gallery items
+                    $count = count($gallery);
+                    
+                    for ($i = 0; $i < $count; $i++) {
+                        $img_num = "image_" . convertNumberToWord($i+1);
+                        $img_url = $gallery[$img_num]['url'];
+                        $img_alt = $gallery[$img_num]['alt'];
+
+                        echo "<img src='$img_url' alt='$img_alt'>";
+                    } 
+                }
+                ?>
+                </div>
+            </div>
         </div>
     </div>
 </div>

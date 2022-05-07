@@ -1,4 +1,4 @@
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, th {
     color: var(--heading);
     font-family: 'Montserrat', sans-serif;
   }
@@ -15,11 +15,11 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 30px;
   }
   
-  h3 {
+  h3, th {
     font-size: 20px;
   }
   
-  p, label {
+  p, label, td {
     font-size: 17px;
     font-family: 'roboto', sans-serif;
   }
