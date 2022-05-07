@@ -512,3 +512,7 @@ a img.aligncenter {
   object-fit: cover;
   object-position: center;
 }
+
+.gallery-grid img[src=""] {
+  display: none;
+}

@@ -57,7 +57,7 @@ get_header();
                 if ($gallery) {
                     // Get amount of gallery items
                     $count = count($gallery);
-                    
+
                     for ($i = 0; $i < $count; $i++) {
                         $img_num = "image_" . convertNumberToWord($i+1);
                         $img_url = $gallery[$img_num]['url'];
