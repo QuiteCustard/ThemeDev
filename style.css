@@ -424,6 +424,7 @@ a img.aligncenter {
 .home-header #form-container .booking-form > label {
   display: flex;
   flex-direction: column;
+  gap: 2px;
 }
 
 .home-header #form-container .booking-form > label input,
