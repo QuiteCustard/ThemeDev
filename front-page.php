@@ -3,6 +3,7 @@ get_header();
 while( have_posts() ): ?>
 <?php the_post(); ?>
 <div class="actual-content <?php echo apply_filters( 'samsTheme_body_width_css', 'default' );?>">
+
     <div id="form-container">
         <h2><?= get_field('heading') ?></h2>
         <form class="booking-form">
@@ -27,7 +28,7 @@ while( have_posts() ): ?>
             <label>
                 Where would you like to stay?
                 <select>
-                  
+            
                 </select>
             </label>
             <button class="button disabled"><?php echo get_field('button_text'); ?></button>

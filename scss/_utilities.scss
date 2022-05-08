@@ -157,6 +157,11 @@
         td {
             padding: 1rem;
             word-break: break-word;
+
+             ul  {
+                padding-left: 1rem;
+                list-style-type: disc;
+            }
         }
 
         td:nth-child(odd) {
@@ -181,10 +186,6 @@
             max-width: 600px;
             object-fit: cover;
             object-position: center;
-
-            &[src=""] {
-                display: none;
-            }
         }
     }
 }

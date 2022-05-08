@@ -491,6 +491,11 @@ a img.aligncenter {
   word-break: break-word;
 }
 
+.details table td ul {
+  padding-left: 1rem;
+  list-style-type: disc;
+}
+
 .details table td:nth-child(odd) {
   font-weight: bold;
 }
@@ -511,8 +516,4 @@ a img.aligncenter {
   max-width: 600px;
   object-fit: cover;
   object-position: center;
-}
-
-.gallery-grid img[src=""] {
-  display: none;
 }
