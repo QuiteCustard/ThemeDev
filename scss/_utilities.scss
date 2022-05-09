@@ -27,17 +27,142 @@
     border-radius: 10px;
 }
 
-.menu ul {
+.menu-button {
+    border: 0;
+    color: var(--link);
+    background: unset;
+    font-size: 17px;
     display: flex;
-    gap: 10px;
-    padding: 0 10px;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: 300ms color;
+
+    i {
+        font-size: 40px;
+    }
+
+    &:hover {
+        color: var(--hover);
+    }
+}
+
+.side-nav {
+    display: flex;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 300ms, visibility 300ms;
+
+    &.open {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .aside {
+        display: none;
+        height: 100%;
+        background-color: #000000ab;
+
+        @media (min-width:1024px) {
+            display: block;
+            flex-basis: 80%;
+        }
+    }
+
+    .inner-wrapper {
+        flex-basis: 100%;
+        background-color: var(--primary);
+        display: flex;
+        flex-direction: column;
+        padding-top: 3rem;
+
+        .menu-button.nav-closer {
+            align-self: flex-end;
+            margin-right: 10px;
+            color: var(--menu-link);
+
+            &:hover {
+                color:var(--hover);
+            }
+        }
+
+        .menu-main-container {
+            height: 100%;
+            padding-top: 6rem;
+
+            .menu {
+                height: 68rem;
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                padding: 0 10px;
+                overflow: auto;
+
+                > li {
+                    font-size: clamp(20px, 4vw, 30px);
+                    border-bottom: 1px solid var(--menu-link);
+                    font-weight: 100;
+
+                    &:hover {
+                        .sub-menu {
+                            display: block;
+                        }
+                    }
+                }
+
+                .sub-menu {
+                    padding-top: 10px;
+                    display: none;
+
+                    li {
+
+                        font-size: clamp(17px, 4vw, 20px);
+
+                        &::before {
+                            content: '-';
+                            width: 20px;
+                            height: 100%;
+                            color: var(--link);
+                            transition: 300ms color;
+                        }
+
+                        &:hover::before {
+                            color: var(--hover);
+                        }
+                    }
+                }
+
+                .menu-item {
+                    a {
+                        color: var(--menu-link);
+                        transition: 0.3s;
+                
+                        &:hover, &:focus {
+                            color:var(--hover);
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (min-width:1024px) {
+            flex-basis: 20%;
+        }
+    }
+
+
 }
 
 .home-header {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 76vh;
+    min-height: 76vh;
     display: flex;
     flex-direction: column;
     gap: 4rem;

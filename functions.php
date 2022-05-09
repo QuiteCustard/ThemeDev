@@ -141,4 +141,27 @@ function getPropInfo() {
     <?php endif;
 }
 ?>
+<?php
 
+function samsTheme_navScript() {
+    wp_enqueue_script('samsTheme-nav', get_stylesheet_directory_uri() . '/js/nav.js', 
+    array (
+        'jquery',
+    ), '', true);
+}
+add_action('wp_enqueue_scripts', 'samsTheme_navScript');
+
+
+
+/*
+function samsTheme_customize_live_preview()
+{
+    wp_enqueue_script('samsTheme-customize-js', get_stylesheet_directory_uri() . '/js/customizer.js', array(
+        'jquery',
+        'customize-preview'
+    ) , '', true);
+}
+add_action('customize_preview_init', 'samsTheme_customize_live_preview');
+
+*/
+?>

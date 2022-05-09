@@ -3,6 +3,7 @@
     z-index: 10;
     transition: 300ms;
     border-bottom: var(--border-colour);
+    margin: auto 10px;
 
     &.sticky {
         position: sticky;
@@ -17,40 +18,9 @@
     align-items: center;
     flex-direction: row;
 
-    &.centered {
-        flex-direction: column;
-    }
-}
-
-.site-home, .menu-main-container {
-    flex: 100%;
-}
-
-@media (min-width:1024px) {
-    .site-home, .menu-main-container {
-        flex: unset;
-    } 
 }
 
 .site-home {
     display: inline-flex;
     justify-content: center;
-}
-
-.main-nav .menu {
-    display: flex;
-    list-style-type: none;
-    justify-content: center;
-    gap:10px;
-    padding:10px;
-}
-
-.menu-item {
-    a {
-        transition: 0.3s;
-
-        &:hover, &:focus {
-            color:var(--hover);
-        }
-    }
 }

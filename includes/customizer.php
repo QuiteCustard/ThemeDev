@@ -348,6 +348,22 @@ function samsTheme_customize_register($wp_customize)
         'settings' => 'samsTheme_link_colour',
     )));
 
+    // Add a new setting for menu link colour
+    $wp_customize->add_setting('samsTheme_menu_link_colour', array(
+        'default' => '22AEB8',
+        'type' => 'option',
+        'sanitize_callback' => 'sanitize_hex_color_no_hash',
+        'sanitize_js_callback' => 'maybe_hash_hex_color',
+        'transport' => 'postMessage',
+    ));
+
+    // Add a control for menu link colour
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'samsTheme_menu_link_colour', array(
+        'label' => __('Menu Link Colour', 'samsTheme') ,
+        'section' => 'samsTheme_style_options',
+        'settings' => 'samsTheme_menu_link_colour',
+    )));
+
     // Add a new setting for link hover colour
     $wp_customize->add_setting('samsTheme_hover_colour', array(
         'default' => '1D868D',
@@ -362,16 +378,6 @@ function samsTheme_customize_register($wp_customize)
         'section' => 'samsTheme_style_options',
         'settings' => 'samsTheme_hover_colour',
     )));
-
-    // Typography section in theme options panel
-    $wp_customize->add_section('samsTheme_typography_options', array(
-        'title' => __('Typography', 'samsTheme'),
-        'panel' => 'samsTheme_options',
-    ));
-
-    // FONT CHOICE HERE
-
-    // FONT CHOICE HERE
 
     // Separator
     $wp_customize->add_setting('samsTheme_separator_four', array(
@@ -406,23 +412,6 @@ function samsTheme_customize_register($wp_customize)
         ) ,
     ));
 
-    // Setting for header layout (centered or not)
-    $wp_customize->add_setting('samsTheme_header_layout', array(
-        'type' => 'option',
-        'default' => 'default',
-    ));
-
-    // Control for header layout (centered or not)
-    $wp_customize->add_control('samsTheme_header_layout', array(
-        'label' => __('Layout for the header', 'samsTheme'),
-        'type' => 'select',
-        'section' => 'samsTheme_layout_options',
-        'description' => __('This will decide the layout of the header', 'samsTheme'),
-        'choices' => array(
-            'default' => __('Not centered', 'samsTheme'),
-            'centered' => __('Centered', 'samsTheme'),
-        ) ,
-    ));
 
     // Setting for header width
     $wp_customize->add_setting('samsTheme_header_width', array(
@@ -538,6 +527,7 @@ function samsTheme_customization_css_colours()
     $text_colour = get_option('samsTheme_text_colour');
     $heading_colour = get_option('samsTheme_heading_colour');
     $link_colour = get_option('samsTheme_link_colour');
+    $menu_link_colour = get_option('samsTheme_menu_link_colour');
     $hover_colour = get_option('samsTheme_hover_colour');
 
 
@@ -573,6 +563,7 @@ function samsTheme_customization_css_colours()
         --text:#<?php echo $text_colour; ?>;
         --heading:#<?php echo $heading_colour; ?>;
         --link:#<?php echo $link_colour; ?>;
+        --menu-link:#<?php echo $menu_link_colour; ?>;
         --hover:#<?php echo $hover_colour; ?>;
         --border-colour:<?php echo $border_colour; ?>;
         --border-radius:<?php echo $border_radius; ?>;

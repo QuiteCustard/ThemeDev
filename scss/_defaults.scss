@@ -28,6 +28,8 @@ body {
     background-image: var(--body-img);
     background-repeat:no-repeat;
     background-size: cover;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 
 ul {

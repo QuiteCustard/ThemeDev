@@ -14,7 +14,8 @@
 </head>
 <body>
   <header class="header <?php echo apply_filters('samsTheme_sticky_header_css', 'default');?>">
-    <nav class="main-nav <?php echo apply_filters('samsTheme_header_layout_css', 'default'), ' ', apply_filters('samsTheme_header_width_css', 'full-width');?>">
+    <nav role="primary-navigation" class="main-nav <?php echo apply_filters('samsTheme_header_layout_css', 'default'), ' ', apply_filters('samsTheme_header_width_css', 'full-width');?>">
+
 <?php if( has_custom_logo() ):
     // Get Custom Logo URL
     $custom_logo_id = get_theme_mod( 'custom_logo' );
@@ -27,10 +28,17 @@
 <?php else: ?>
 <a href="" class="site-name"><?php bloginfo( 'name' ); ?></a>
 <?php endif; ?>
-<?php
+<button class="menu-button">Menu<i class="fa-solid fa-bars"></i></button>
+    </nav>
+    <nav class="side-nav">
+      <div class="aside"></div>
+      <div class="inner-wrapper">
+      <button class="menu-button nav-closer">Close<i class="fa-solid fa-x"></i></button>
+    <?php
     wp_nav_menu( array(
         'theme_location'  => 'header',
     ) );
 ?>
-    </nav>
+</div>
+</nav>
     </header>
