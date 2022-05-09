@@ -167,7 +167,7 @@ a img.aligncenter {
   z-index: 10;
   transition: 300ms;
   border-bottom: var(--border-colour);
-  margin: auto 10px;
+  padding: 0 10px;
 }
 
 .header.sticky {
