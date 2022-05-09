@@ -33,7 +33,7 @@ while( have_posts() ): ?>
             
                 </select>
             </label>
-            <button class="button disabled"><?php echo get_field('button_text'); ?></button>
+            <button class="button"><?php echo get_field('button_text'); ?></button>
         </form>
     </div>
 </div>

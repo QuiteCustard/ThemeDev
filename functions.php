@@ -112,4 +112,33 @@ function convertNumberToWord($num = false)
         break;
     }
 }
+
+function getPropInfo() {
+    $args = array (
+        'post_type' => 'page',
+        'posts_per_page' => -1,
+        'meta_query' => array(
+            array(
+                'key' => '_wp_page_template',
+                'value' => 'templates/details_template.php',
+            )
+        )
+    );
+    $the_pages = new WP_Query($args);
+ //  echo "<pre>";print_r($the_pages);
+    ?>
+    
+    <?php if ( $the_pages->have_posts() ) : ?>
+       <div class="property-cards">
+        <?php while ( $the_pages->have_posts() ) : ?>
+            <?php $the_pages->the_post(); ?>
+            <a class="card" style="background-image:url(<?php $image = get_field("property_image"); echo $image['url'] ?>)" href="<?php the_guid(); ?>">
+                <p class="short-desc"><?= the_field('short_description'); ?></p>
+                <h2><?= the_title(); ?></h2>
+        </a>
+        <?php endwhile; ?>
+        </div>
+    <?php endif;
+}
 ?>
+

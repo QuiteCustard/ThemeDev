@@ -220,6 +220,7 @@ a img.aligncenter {
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  width: 100%;
 }
 
 .footer img {
@@ -447,10 +448,16 @@ a img.aligncenter {
   background-color: white;
   border: 0;
   border-radius: 5px;
+  transition: background-color 300ms;
 }
 
 .button.disabled {
   pointer-events: none;
+}
+
+.button:hover {
+  background-color: var(--primary);
+  filter: brightness(0.8);
 }
 
 .cta {
@@ -551,4 +558,69 @@ a img.aligncenter {
   max-width: 600px;
   object-fit: cover;
   object-position: center;
+}
+
+.property-cards {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem;
+  flex-direction: column;
+}
+
+.property-cards .card {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  height: 300px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: flex-end;
+  color: white;
+  position: relative;
+}
+
+.property-cards .card > * {
+  z-index: 1;
+  padding: 1rem;
+}
+
+.property-cards .card .short-desc {
+  visibility: hidden;
+  opacity: 0;
+  transition: 300ms opacity;
+}
+
+.property-cards .card::before, .property-cards .card::after {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  content: '';
+}
+
+.property-cards .card::before {
+  background: linear-gradient(180deg, #ffffff00, #000000ab);
+}
+
+.property-cards .card::after {
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.603);
+  transition: 300ms opacity;
+}
+
+.property-cards .card:hover .short-desc {
+  opacity: 1;
+  visibility: visible;
+}
+
+.property-cards .card:hover::after {
+  opacity: 1;
+}
+
+@media (min-width: 1024px) {
+  .property-cards {
+    flex-direction: row;
+  }
 }
