@@ -7,7 +7,7 @@ get_header();
     <div class="content-container boxed">
         <h1 class="page-title"><?php the_title(); ?></h1>
         <div class="actual-content">
-            <div class="grid">
+            <div class="grid-container">
                 <div class="info">
                     <p class="desc">
                         <?php echo get_field('description'); ?>
@@ -27,7 +27,7 @@ get_header();
                             }
 
                             if ($icons['disability_friendly'] == 1) {
-                                echo "<div class='icon-wrapper disability'><i class='fa-solid fa-heart-crack'></i><span'>Disabililty friendly</span></div>";
+                                echo "<div class='icon-wrapper disability'><i class='fa-solid fa-heart-crack'></i><span>Disabililty friendly</span></div>";
                             }
 
                             if ($icons['family_friendly'] == 1) {
@@ -54,7 +54,7 @@ get_header();
                     </div>
                 </div>
             <?php $image = get_field('property_image'); ?>
-            <img class="img" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+            <a href="<?= $image['url'] ?>" class="img"><img src="<?= $image['url']; ?>" alt="<?=$image['alt']; ?>"></a>
             <div class="cta">
                 <h3>Interested?</h3>
                 <p>If you'd like more information on <?php the_title();?>, get in touch here:</p>
@@ -140,7 +140,7 @@ get_header();
                    $img_url = $gallery[$img_num]['url'];
                    $img_alt = $gallery[$img_num]['alt'];
                
-                   echo "<img src='$img_url' alt='$img_alt'>";
+                   echo "<a href='$img_url'><img src='$img_url' alt='$img_alt'></a>";
                  }
                }
                ?>

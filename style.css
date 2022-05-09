@@ -267,7 +267,7 @@ a img.aligncenter {
   bottom: 0;
 }
 
-.grid {
+.grid-container {
   display: grid;
   grid-template-areas: "img" "info" "cta" "details" "gallery";
   grid-auto-columns: 1fr;
@@ -277,8 +277,11 @@ a img.aligncenter {
   justify-items: center;
 }
 
-.grid > img {
+.grid-container .img {
   grid-area: img;
+}
+
+.grid-container .img img {
   width: 100%;
   max-width: 600px;
   height: 100%;
@@ -286,25 +289,25 @@ a img.aligncenter {
   object-fit: cover;
 }
 
-.grid .info {
+.grid-container .info {
   grid-area: info;
 }
 
-.grid .cta {
+.grid-container .cta {
   grid-area: cta;
 }
 
-.grid .details {
+.grid-container .details {
   grid-area: details;
   align-self: end;
 }
 
-.grid .gallery {
+.grid-container .gallery {
   grid-area: gallery;
 }
 
 @media (min-width: 1024px) {
-  .grid {
+  .grid-container {
     grid-template-areas: "info info img" "details details img" "details details cta" "gallery gallery gallery";
     justify-items: unset;
   }
@@ -432,7 +435,7 @@ a img.aligncenter {
 }
 
 .side-nav .inner-wrapper .menu-main-container .menu .sub-menu {
-  padding-top: 10px;
+  padding: 10px 0 5px 0;
   display: none;
 }
 
@@ -631,7 +634,7 @@ a img.aligncenter {
   opacity: 0;
   visibility: hidden;
   transition: 300ms opacity, 300ms visibility;
-  font-family: var(--roboto);
+  font-family: 'roboto', sans-serif;
   color: var(--primary);
 }
 
@@ -677,16 +680,57 @@ a img.aligncenter {
   font-weight: bold;
 }
 
-.gallery h2 {
+.grid-container .img {
+  position: relative;
+}
+
+.grid-container .img::after {
+  content: '';
+  background-color: black;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: opacity 300ms;
+  top: 0;
+  left: 0;
+}
+
+.grid-container .img:hover::after {
+  opacity: 0.5;
+}
+
+.grid-container .gallery h2 {
   margin-bottom: 1rem;
 }
 
-.gallery-grid {
+.grid-container .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
 }
 
-.gallery-grid img {
+.grid-container .gallery-grid a {
+  position: relative;
+}
+
+.grid-container .gallery-grid a::after {
+  content: '';
+  background-color: black;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: opacity 300ms;
+  top: 0;
+  left: 0;
+}
+
+.grid-container .gallery-grid a:hover::after {
+  opacity: 0.5;
+}
+
+.grid-container .gallery-grid img {
   width: 100%;
   height: 100%;
   max-height: 600px;
