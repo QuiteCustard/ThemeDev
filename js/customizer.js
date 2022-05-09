@@ -10,7 +10,7 @@
     // Shows a live preview of changing the header colour of the theme
     wp.customize('samsTheme_primary_colour', function (colour) {
         colour.bind(function (updated_colour) {
-            $('#form-container').css('background-color', updated_colour);
+            $('.inner-wrapper').css('background-color', updated_colour);
         });
     });
 

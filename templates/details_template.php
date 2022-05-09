@@ -16,39 +16,38 @@ get_header();
                         <?php $icons = get_field("icons");
                         if ($icons) {
                             if ($icons['floors'] == "Single story") {
-                                echo "<i class='fa-solid fa-house'></i>";
+                                echo "<div class='icon-wrapper single-story'><i class='fa-solid fa-house'></i><span>Single story</span></div>";
                             }
                             else if ($icons['floors'] == "Multi story"){
-                                echo "<i class='fa-solid fa-building'></i>";
+                                echo "<div class='icon-wrapper multi-story'><i class='fa-solid fa-building'></i><span>Multi story</span></div>";
                             }
 
                             if ($icons['beach'] == 1) {
-                               echo "<i class='fa-solid fa-umbrella-beach'></i>";
+                               echo "<div class='icon-wrapper beach'><i class='fa-solid fa-umbrella-beach'></i><span>Beach</span></div>";
                             }
 
                             if ($icons['disability_friendly'] == 1) {
-                                echo "<i class='fa-solid fa-heart-crack'></i>";
+                                echo "<div class='icon-wrapper disability'><i class='fa-solid fa-heart-crack'></i><span'>Disabililty friendly</span></div>";
                             }
 
                             if ($icons['family_friendly'] == 1) {
-                                echo "<i class='fa-solid fa-user-group'></i>";
+                                echo "<div class='icon-wrapper family'><i class='fa-solid fa-user-group'></i><span>Family friendly</span></div>";
                             }
 
                             if ($icons['dog_friendly'] == 1) {
-                                echo "<i class='fa-solid fa-dog'></i>";
+                                echo "<div class='icon-wrapper dog'><i class='fa-solid fa-dog'></i><span>Dog friendly</span></div>";
                             }
 
                             if ($icons['parking'] == 1) {
-                               echo "<i class='fa-solid fa-car'></i>";
+                               echo "<div class='icon-wrapper parking'><i class='fa-solid fa-car'></i><span>Parking</span></div>";
                             }
 
                             if ($icons['pool'] == 1) {
-                               echo "<i class='fa-solid fa-person-swimming'></i>";
+                               echo "<div class='icon-wrapper pool'><i class='fa-solid fa-person-swimming'></i><span>Pool</span></div>";
                             }
 
-
                             if ($icons['garden'] == 1) {
-                                echo "<i class='fa-brands fa-pagelines'></i>";
+                                echo "<div class='icon-wrapper garden'><i class='fa-brands fa-pagelines'></i><span>Garden</span></div>";
                             }
                         }
                         ?>    
