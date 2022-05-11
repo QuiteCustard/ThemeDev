@@ -12,7 +12,7 @@ get_header();
                         <p class="desc">
                             <?php echo get_field('description'); ?>
                         </p>
-                    <?php getIcons(); ?>
+                    <?php getIcons($id); ?>
                     </div>
                     <?php $image = get_field('property_image'); ?>
                     <a href="<?= $image['url'] ?>" class="img"><img src="<?= $image['url']; ?>" alt="<?=$image['alt']; ?>"></a>
@@ -86,27 +86,7 @@ get_header();
                     </div>
                     <div class="gallery">
                         <h2>Gallery</h2>
-                        <div class="gallery-grid">
-                        <?php
-                        $gallery = get_field('gallery');
-
-                        if ($gallery) {
-                            // Get amount of gallery items
-                            $count = count($gallery);
-                    
-                            for ($i = 0; $i < $count; $i++) {
-                                $img_num = "image_" . convertNumberToWord($i+1);
-                                if (!isset($gallery[$img_num]['url']) || empty($gallery[$img_num]['url'])) {
-                                    continue;
-                                }
-                                $img_url = $gallery[$img_num]['url'];
-                                $img_alt = $gallery[$img_num]['alt'];
-                    
-                                echo "<a href='$img_url'><img src='$img_url' alt='$img_alt'></a>";
-                            }
-                        }
-                        ?>
-                        </div>
+                        <?php galleryItems($pageID); ?>
                     </div>
                     <div class="reviews">
                         <h2>Reviews</h2>

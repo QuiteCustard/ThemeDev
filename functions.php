@@ -113,10 +113,34 @@ function convertNumberToWord($num = false)
     }
 }
 
-function getIcons() {
+function getPropInfo($pageID) {
+    $args = array (
+        'post_type' => 'page',
+        'posts_per_page' => -1,
+        'post__not_in' => array($pageID),
+        'meta_query' => array(
+            array(
+                'key' => '_wp_page_template',
+                'value' => 'templates/details_template.php'    
+            )
+        )
+    );
+    $posts = get_posts( $args );
+    $newArr = [];
+
+    if ( $posts ) {
+      foreach ( $posts as $post ) {
+        $newArr[$post->ID] = $post->post_title;
+      }
+    }
+        
+    return $newArr;
+}
+
+function getIcons($id) {
 
     echo "<div class='icons'>";
-    $icons = get_field("icons");
+    $icons = get_field("icons", $id);
 
     if ($icons) {
         if ($icons['floors'] == "Single story") {
@@ -158,43 +182,61 @@ function getIcons() {
     echo "</div>";
 }
 
-function getPropInfo($pageID) {
-    $args = array (
-        'post_type' => 'page',
-        'posts_per_page' => -1,
-        'post__not_in' => array("$pageID"),
-        'meta_query' => array(
-            array(
-                'key' => '_wp_page_template',
-                'value' => 'templates/details_template.php'    
-            )
-        )
-    );
-
-    return $the_pages = new WP_Query($args);
-}
-
 function propertyCards($pageID) {
     $the_pages = getPropInfo($pageID);
-    ?>
-    <?php if ( $the_pages->have_posts() ) : ?>
-       <div class="property-cards">
-        <?php while ( $the_pages->have_posts() ) : ?>
-            <?php $the_pages->the_post(); ?>
-            <a class="card" style="background-image:url(<?php $image = get_field("property_image"); echo $image['url'] ?>)" href="<?php the_guid(); ?>">
-				<div class="icons-wrapper">
-				<?php getIcons(); ?>
-				</div>
-                <p class="short-desc"><?= the_field('short_description'); ?></p>
-                <h2><?= the_title(); ?> - <?= the_field("location")?></h2>
-        </a>
-        <?php endwhile; ?>
-        </div>
-    <?php endif;
-}
-?>
+ 
+     if ( $the_pages ) { ?>
+        <div class="property-cards">
+         <?php
+         foreach ( $the_pages as $id => $title ) {
+           $image = get_field("property_image", $id);
+           ?>
+            <a class="card" style="background-image:url(<?= $image['url'] ?>)" href="<?= get_permalink( $id ) ?>">
+                 <div class="icons-wrapper">
+                 <?php getIcons($id); ?>
+                 </div>
+                 <p class="short-desc"><?= the_field('short_description', $id); ?></p>
+                 <h2><?= $title; ?> - <?= the_field("location", $id)?></h2>
+         </a>
+         <?php } ?>
+         </div>
+     <?php }
+ }
 
-<?php
+ function galleryItems($pageID) {
+    $the_pages = getPropInfo($pageID);
+
+    if ( $the_pages ) { ?>
+        <div class="gallery-grid">
+        <?php
+        foreach ( $the_pages as $id => $title ) {
+            $gallery = get_field('gallery', $id);
+            $count = count($gallery);
+            for ($i = 0; $i < $count; $i++) {
+                $img_num = "image_" . convertNumberToWord($i+1);
+                if (!isset($gallery[$img_num]['url']) || empty($gallery[$img_num]['url'])) {
+                    continue;
+                }
+                $img_url = $gallery[$img_num]['url'];
+                $img_alt = $gallery[$img_num]['alt'];
+
+                echo "<a href='$img_url'><img src='$img_url' alt='$img_alt'></a>";
+            }
+        }
+        echo "</div>";
+    }
+}
+
+function populateSelect($pageID) {
+    $the_pages = getPropInfo($pageID);
+
+    if ( $the_pages ) {
+      foreach ( $the_pages as $id => $title ) {
+        echo '<option value="'.$id.'">'.$title.'</option>';
+      }
+    }
+}
+
 function samsTheme_customScripts() {
     wp_enqueue_script('samsTheme-nav', get_stylesheet_directory_uri() . '/js/nav.js', array ('jquery',), '', true);
   }   

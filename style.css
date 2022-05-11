@@ -250,6 +250,10 @@ a img.aligncenter {
   width: 100%;
 }
 
+.properties {
+  padding: 5rem 0;
+}
+
 .grid-container {
   display: grid;
   grid-template-areas: "title" "img" "info" "cta" "details" "gallery" "reviews" "other-properties";
@@ -486,6 +490,41 @@ a img.aligncenter {
   }
 }
 
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.gallery-grid a {
+  position: relative;
+}
+
+.gallery-grid a::after {
+  content: '';
+  background-color: black;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: opacity 300ms;
+  top: 0;
+  left: 0;
+}
+
+.gallery-grid a:hover::after {
+  opacity: 0.5;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 100%;
+  max-height: 600px;
+  max-width: 600px;
+  object-fit: cover;
+  object-position: center;
+}
+
 .side-nav {
   display: flex;
   position: fixed;
@@ -681,6 +720,14 @@ a img.aligncenter {
   }
 }
 
+.properties h2 {
+  padding-bottom: 2rem;
+}
+
+.properties .property-cards {
+  margin: 0;
+}
+
 .cta {
   display: flex;
   flex-direction: column;
@@ -777,41 +824,6 @@ a img.aligncenter {
 
 .grid-container .img:hover::after {
   opacity: 0.5;
-}
-
-.grid-container .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.grid-container .gallery-grid a {
-  position: relative;
-}
-
-.grid-container .gallery-grid a::after {
-  content: '';
-  background-color: black;
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  transition: opacity 300ms;
-  top: 0;
-  left: 0;
-}
-
-.grid-container .gallery-grid a:hover::after {
-  opacity: 0.5;
-}
-
-.grid-container .gallery-grid img {
-  width: 100%;
-  height: 100%;
-  max-height: 600px;
-  max-width: 600px;
-  object-fit: cover;
-  object-position: center;
 }
 
 .grid-container .reviews .glsr.glsr-default.glsr-ltr {
