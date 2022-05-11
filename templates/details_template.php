@@ -4,6 +4,7 @@ get_header();
 ?>
 <?php while( have_posts() ): ?>
     <?php the_post(); ?>
+    <?php $pageID = $post->ID; ?>
     <div class="content-container boxed">
         <div class="actual-content">
             <div class="grid-container">
@@ -86,7 +87,7 @@ get_header();
                     </div>
                     <div class="gallery">
                         <h2>Gallery</h2>
-                        <?php galleryItems($pageID); ?>
+                        <?php getPropertyGallery($pageID); ?>
                     </div>
                     <div class="reviews">
                         <h2>Reviews</h2>
@@ -94,7 +95,7 @@ get_header();
                     </div>
                     <div class="other-properties">
                         <h2>Other properties</h2>
-                        <?php $pageID = $post->ID; propertyCards($pageID); ?>
+                        <?php propertyCards($pageID); ?>
                     </div>
                 </div>
             </div>

@@ -137,6 +137,39 @@ function getPropInfo($pageID) {
     return $newArr;
 }
 
+function bookingForm() {
+?>
+    <h2 class="heading"><?= get_field('heading'); ?></h2>
+    <form class="booking-form">
+                <label>
+                    Arrival Date:
+                    <input type="date"> 
+                </label>
+                <label>
+                    Depature date:
+                    <input type="date">
+                </label>
+                <label>
+                    How many people?
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>4+</option>
+                    </select>
+                </label>
+                <label>
+                    Where would you like to stay?
+                    <select>
+                    <?php populateSelect($pageID); ?>
+                    </select>
+                </label>
+                <button class="button">Search</button>
+            </form>
+            <?php
+}
+
 function getIcons($id) {
 
     echo "<div class='icons'>";
@@ -201,9 +234,37 @@ function propertyCards($pageID) {
          <?php } ?>
          </div>
      <?php }
- }
+}
 
- function galleryItems($pageID) {
+function getPropertyGallery($pageID) {
+
+    $gallery = get_field('gallery');
+
+    if ($gallery) {
+        $count = count($gallery);
+        //echo "<pre>";print_r($gallery); 
+        ?>
+
+        <div class="gallery-grid"> 
+        <?php
+
+        for ($i = 0; $i < $count; $i++) {
+            $img_num = "image_" . convertNumberToWord($i+1);
+            if (!isset($gallery[$img_num]['url']) || empty($gallery[$img_num]['url'])) {
+                continue;
+            }
+            $img_url = $gallery[$img_num]['url'];
+            $img_alt = $gallery[$img_num]['alt'];
+    
+            echo "<a href='$img_url'><img src='$img_url' alt='$img_alt'></a>";
+        }
+        ?>
+        </div>
+        <?php
+    }
+}
+
+function getAllPropertiesGallery() {
     $the_pages = getPropInfo($pageID);
 
     if ( $the_pages ) { ?>
@@ -212,6 +273,7 @@ function propertyCards($pageID) {
         foreach ( $the_pages as $id => $title ) {
             $gallery = get_field('gallery', $id);
             $count = count($gallery);
+
             for ($i = 0; $i < $count; $i++) {
                 $img_num = "image_" . convertNumberToWord($i+1);
                 if (!isset($gallery[$img_num]['url']) || empty($gallery[$img_num]['url'])) {
@@ -219,11 +281,13 @@ function propertyCards($pageID) {
                 }
                 $img_url = $gallery[$img_num]['url'];
                 $img_alt = $gallery[$img_num]['alt'];
-
+        
                 echo "<a href='$img_url'><img src='$img_url' alt='$img_alt'></a>";
             }
         }
-        echo "</div>";
+        ?>
+        </div>
+    <?php
     }
 }
 
