@@ -594,6 +594,7 @@ a img.aligncenter {
   display: none;
   height: 100%;
   background-color: #000000ab;
+  cursor: pointer;
 }
 
 @media (min-width: 1024px) {
@@ -639,15 +640,30 @@ a img.aligncenter {
   font-size: clamp(20px, 4vw, 30px);
   border-bottom: 1px solid var(--menu-link);
   font-weight: 100;
+  position: relative;
 }
 
-.side-nav .inner-wrapper .menu-main-container .menu > li:hover .sub-menu {
-  display: block;
+.side-nav .inner-wrapper .menu-main-container .menu > li i {
+  color: var(--menu-link);
+  font-size: inherit;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: color 300ms;
+  cursor: pointer;
+}
+
+.side-nav .inner-wrapper .menu-main-container .menu > li i:hover {
+  color: var(--hover);
 }
 
 .side-nav .inner-wrapper .menu-main-container .menu .sub-menu {
   padding: 10px 0 5px 0;
   display: none;
+}
+
+.side-nav .inner-wrapper .menu-main-container .menu .sub-menu.open {
+  display: block;
 }
 
 .side-nav .inner-wrapper .menu-main-container .menu .sub-menu li {
@@ -729,7 +745,9 @@ a img.aligncenter {
 }
 
 @media (min-width: 1024px) {
-  .header-img .form-container, .header-img .main-heading, .header-img .contact-details {
+  .header-img .form-container,
+  .header-img .main-heading,
+  .header-img .contact-details {
     margin: 0rem;
   }
 }
