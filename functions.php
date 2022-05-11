@@ -206,10 +206,17 @@ function install_plugins_notice(){
     global $pagenow;
     if ( $pagenow == 'index.php' ) {
 		if(! in_array('advanced-custom-fields/acf.php', apply_filters('active_plugins', get_option('active_plugins')))){ 
-			         echo '<div class="notice notice-warning is-dismissible">
-             <p>Advanced Custom Fields must be installed for this theme to work currently.</p>
-         </div>';
+		    echo 
+            '<div class="notice notice-warning is-dismissible">
+            <p>Advanced Custom Fields must be installed for this theme to work correctly.</p>
+            </div>';
 		}
+        if(! in_array('site-reviews/site-reviews.php', apply_filters('active_plugins', get_option('active_plugins')))){ 
+            echo 
+            '<div class="notice notice-warning is-dismissible">
+            <p>Site reviews must be installed for this theme to work correctly.</p>
+            </div>';
+}
     }
 }
 add_action('admin_notices', 'install_plugins_notice');
