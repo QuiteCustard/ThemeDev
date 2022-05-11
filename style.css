@@ -607,48 +607,6 @@ a img.aligncenter {
   line-height: 1.3;
 }
 
-.info .icons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-}
-
-.info .icons .icon-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.info .icons .icon-wrapper i {
-  color: var(--primary);
-  font-size: 40px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem;
-}
-
-.info .icons .icon-wrapper span {
-  opacity: 0;
-  visibility: hidden;
-  transition: 300ms opacity, 300ms visibility;
-  font-family: 'roboto', sans-serif;
-  color: var(--primary);
-}
-
-.info .icons .icon-wrapper:hover span {
-  opacity: 1;
-  visibility: visible;
-}
-
-@media (min-width: 1024px) {
-  .info .icons {
-    justify-content: flex-start;
-  }
-}
-
 .details h2 {
   margin-bottom: 1rem;
 }
@@ -739,19 +697,62 @@ a img.aligncenter {
   object-position: center;
 }
 
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.icons .icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icons .icon-wrapper i {
+  color: var(--primary);
+  font-size: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.icons .icon-wrapper span {
+  opacity: 0;
+  visibility: hidden;
+  transition: 300ms opacity, 300ms visibility;
+  font-family: 'roboto', sans-serif;
+  color: var(--primary);
+}
+
+.icons .icon-wrapper:hover span {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (min-width: 1024px) {
+  .icons {
+    justify-content: flex-start;
+  }
+}
+
 .property-cards {
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin: 1rem;
   flex-direction: column;
+  align-items: center;
 }
 
 .property-cards .card {
   display: flex;
   flex-direction: column;
   max-width: 500px;
-  height: 300px;
+  min-height: 300px;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -764,6 +765,36 @@ a img.aligncenter {
 .property-cards .card > * {
   z-index: 1;
   padding: 1rem;
+}
+
+.property-cards .card .icons-wrapper {
+  flex: 1;
+}
+
+.property-cards .card .icons {
+  flex-direction: column;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: 300ms opacity;
+  gap: 1rem;
+}
+
+.property-cards .card .icons .icon-wrapper {
+  gap: 10px;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.property-cards .card .icons .icon-wrapper i {
+  font-size: 16px;
+  padding: 0;
+}
+
+.property-cards .card .icons .icon-wrapper span {
+  opacity: 1;
+  visibility: visible;
 }
 
 .property-cards .card .short-desc {
@@ -789,7 +820,7 @@ a img.aligncenter {
   transition: 300ms opacity;
 }
 
-.property-cards .card:hover .short-desc {
+.property-cards .card:hover .icons, .property-cards .card:hover .short-desc {
   opacity: 1;
   visibility: visible;
 }

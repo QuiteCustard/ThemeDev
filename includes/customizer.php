@@ -379,14 +379,9 @@ function samsTheme_customize_register($wp_customize)
         'settings' => 'samsTheme_hover_colour',
     )));
 
-    // Separator
-    $wp_customize->add_setting('samsTheme_separator_four', array(
-        'sanitize_callback' => 'samsTheme_sanitize',
-    ));
 
-    $wp_customize->add_control(new separator_control($wp_customize, 'samsTheme_separator_four', array(
-        'section' => 'samsTheme_typography_options',
-    )));
+
+
 
     // Layout section in theme options panel
     $wp_customize->add_section('samsTheme_layout_options', array(
@@ -430,24 +425,7 @@ function samsTheme_customize_register($wp_customize)
             'boxed' => __('Boxed (1500px)', 'samsTheme'),
             'full-width' => __('Full Width', 'samsTheme'),
         ),
-        'active_callback' => 'header_width',
     ));
-
-    // Function for callback to display header width selector
-    function header_width($control)
-    {
-        $header_setting = $control->manager->get_setting('samsTheme_header_layout')->value();
-        $control_id = $control->id;
-
-        if ($control_id == 'samsTheme_header_width' && $header_setting == 'default')
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
 
     // Separator
     $wp_customize->add_setting('samsTheme_separator_five', array(

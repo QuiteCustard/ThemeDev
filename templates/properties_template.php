@@ -7,7 +7,7 @@ get_header();
     <?php the_post(); ?>
     <div class="content-container boxed">
         <h1 class="page-title"><?php the_title(); ?></h1>
-      <?php getPropInfo(); ?>
+      <?php propertyCards(); ?>
     </div>
 </div>
 <?php endwhile; ?> 

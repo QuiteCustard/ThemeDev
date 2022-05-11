@@ -2,7 +2,7 @@
 get_header();
 while( have_posts() ): ?>
 <?php the_post(); ?>
-<div class="actual-content <?php echo apply_filters( 'samsTheme_body_width_css', 'default' );?>">
+<div class="actual-content <?php echo apply_filters('samsTheme_body_width_css', 'default');?>">
 <?php $image = get_field('home_header_image'); ?>
 <div class="full home-header" style="background-image:url(<?php echo $image['url']; ?>">
 <h1 class="home-h1"><?php echo get_bloginfo('name'); ?></h1>
