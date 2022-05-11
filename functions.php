@@ -185,7 +185,7 @@ function propertyCards() {
 				<?php getIcons(); ?>
 				</div>
                 <p class="short-desc"><?= the_field('short_description'); ?></p>
-                <h2><?= the_title(); ?></h2>
+                <h2><?= the_title(); ?> - <?= the_field("location")?></h2>
         </a>
         <?php endwhile; ?>
         </div>

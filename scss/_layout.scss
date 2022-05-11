@@ -47,8 +47,8 @@
         "info"
         "cta"
         "details"
-        "gallery";
-
+        "gallery"
+        "reviews";
     grid-auto-columns: 1fr;
     margin: 50px 1rem;
     column-gap: 2rem;
@@ -84,12 +84,17 @@
         grid-area: gallery;
     }
 
+    .reviews {
+        grid-area: reviews;
+    }
+
     @media (min-width:1024px) {
         grid-template-areas:
             "info info img"
             "details details img"
             "details details cta"
-            "gallery gallery gallery";
+            "gallery gallery gallery"
+            "reviews reviews reviews";
             justify-items: unset;
     }
 }

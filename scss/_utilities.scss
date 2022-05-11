@@ -293,10 +293,6 @@
 }
 
 .details {
-    h2 {
-        margin-bottom: 1rem;
-    }
-
     table {
         width: 100%;
 
@@ -326,6 +322,10 @@
 }
 
 .grid-container {
+    h2 {
+        margin-bottom: 1rem;
+    }
+
     .img {
         position: relative;
 
@@ -347,10 +347,6 @@
     }
 
     .gallery {
-        h2 {
-            margin-bottom: 1rem;
-        }
-
         &-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -387,6 +383,26 @@
         }
     }
 
+    .reviews {
+        .glsr.glsr-default.glsr-ltr {
+            margin:1rem 0;
+        }
+
+        span, input, textarea {
+            font-family: 'roboto', 'sans-serif' !important;
+        }
+
+        .glsr-default form.glsr-form .glsr-toggle input[type=checkbox]:checked+.glsr-toggle-track::before {
+            background-color: var(--primary);
+        }
+
+        button {
+            background-color: var(--primary);
+            transition:background-color, 300ms;
+        }
+
+
+    }
 }
 
 .icons {
@@ -526,5 +542,6 @@
 
     @media (min-width:1024px) {
         flex-direction: row;
+        align-items: stretch;
     }
 }
