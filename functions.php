@@ -158,14 +158,15 @@ function getIcons() {
     echo "</div>";
 }
 
-function getPropInfo() {
+function getPropInfo($val) {
     $args = array (
         'post_type' => 'page',
         'posts_per_page' => -1,
+        'post__not_in' => array("$val"),
         'meta_query' => array(
             array(
                 'key' => '_wp_page_template',
-                'value' => 'templates/details_template.php',
+                'value' => 'templates/details_template.php'    
             )
         )
     );
@@ -173,8 +174,8 @@ function getPropInfo() {
     return $the_pages = new WP_Query($args);
 }
 
-function propertyCards() {
-    $the_pages = getPropInfo();
+function propertyCards($val) {
+    $the_pages = getPropInfo($val);
     ?>
     <?php if ( $the_pages->have_posts() ) : ?>
        <div class="property-cards">
@@ -198,11 +199,8 @@ function samsTheme_customScripts() {
     wp_enqueue_script('samsTheme-nav', get_stylesheet_directory_uri() . '/js/nav.js', array ('jquery',), '', true);
   }   
   add_action( 'wp_enqueue_scripts', 'samsTheme_customScripts' );
-?>
-<?php
 
-
-function install_plugins_notice(){
+function install_plugins_notice() {
     global $pagenow;
     if ( $pagenow == 'index.php' ) {
 		if(! in_array('advanced-custom-fields/acf.php', apply_filters('active_plugins', get_option('active_plugins')))){ 

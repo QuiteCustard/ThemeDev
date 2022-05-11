@@ -5,9 +5,9 @@ get_header();
 <?php while( have_posts() ): ?>
     <?php the_post(); ?>
     <div class="content-container boxed">
-        <h1 class="page-title"><?php the_title(); ?></h1>
         <div class="actual-content">
             <div class="grid-container">
+            <h1 class="page-title"><?php the_title(); ?></h1>
                     <div class="info">
                         <p class="desc">
                             <?php echo get_field('description'); ?>
@@ -109,8 +109,12 @@ get_header();
                         </div>
                     </div>
                     <div class="reviews">
-                        <h2>Lol</h2>
-                        <?php echo do_shortcode("[site_reviews assigned_posts='']"); echo do_shortcode("[site_reviews_form assigned_posts='']"); ?>
+                        <h2>Reviews</h2>
+                        <?php echo do_shortcode('[site_reviews assigned_posts=""]'); echo do_shortcode('[site_reviews_form assigned_posts=""]'); ?>
+                    </div>
+                    <div class="other-properties">
+                        <h2>Other properties</h2>
+                        <?php $val = $post->ID; propertyCards($val); ?>
                     </div>
                 </div>
             </div>
