@@ -114,7 +114,7 @@ get_header();
                     </div>
                     <div class="other-properties">
                         <h2>Other properties</h2>
-                        <?php $val = $post->ID; propertyCards($val); ?>
+                        <?php $pageID = $post->ID; propertyCards($pageID); ?>
                     </div>
                 </div>
             </div>

@@ -158,11 +158,11 @@ function getIcons() {
     echo "</div>";
 }
 
-function getPropInfo($val) {
+function getPropInfo($pageID) {
     $args = array (
         'post_type' => 'page',
         'posts_per_page' => -1,
-        'post__not_in' => array("$val"),
+        'post__not_in' => array("$pageID"),
         'meta_query' => array(
             array(
                 'key' => '_wp_page_template',
@@ -174,8 +174,8 @@ function getPropInfo($val) {
     return $the_pages = new WP_Query($args);
 }
 
-function propertyCards($val) {
-    $the_pages = getPropInfo($val);
+function propertyCards($pageID) {
+    $the_pages = getPropInfo($pageID);
     ?>
     <?php if ( $the_pages->have_posts() ) : ?>
        <div class="property-cards">
