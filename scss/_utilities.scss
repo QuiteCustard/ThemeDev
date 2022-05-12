@@ -1,3 +1,22 @@
+.custom-login-page {
+    background-color: var(--primary);
+
+    .form-container {
+        justify-self: center;
+        margin-top:5rem;
+        gap:2rem;
+        align-items: center;
+        
+        p {
+            display: flex;
+            gap:10px;
+        }
+
+        form {
+            align-items: center;
+        }
+    }
+}
 .side-nav {
     display: flex;
     position: fixed;
@@ -55,7 +74,7 @@
                 padding: 0 10px;
                 overflow: auto;
 
-                > li {
+                >li {
                     font-size: clamp(20px, 4vw, 30px);
                     border-bottom: 1px solid var(--menu-link);
                     font-weight: 100;
@@ -68,7 +87,7 @@
                         right: 0;
                         top: 0;
                         transition: color 300ms;
-                        cursor:pointer;
+                        cursor: pointer;
 
                         &:hover {
                             color: var(--hover);
@@ -167,7 +186,6 @@
     }
 
     @media (min-width:1024px) {
-
         .form-container,
         .main-heading,
         .contact-details {
@@ -184,7 +202,6 @@
     }
 
     .property-cards {
-        justify-content: flex-start;
         margin: 0;
     }
 }

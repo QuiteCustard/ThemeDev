@@ -71,6 +71,10 @@
             }
         }
 
+        .button {
+            cursor: pointer;
+        }
+        
         @media (min-width:1024px) {
             justify-content: space-evenly;
         }
@@ -146,12 +150,11 @@
 }
 
 .property-cards {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
     justify-content: center;
     gap: 1rem;
     margin: 1rem;
-    flex-direction: column;
-    align-items: center;
 
     .card {
         display: flex;

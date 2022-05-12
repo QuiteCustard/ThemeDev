@@ -382,6 +382,10 @@ a img.aligncenter {
   cursor: pointer;
 }
 
+.form-container form .button {
+  cursor: pointer;
+}
+
 @media (min-width: 1024px) {
   .form-container form {
     justify-content: space-evenly;
@@ -459,12 +463,11 @@ a img.aligncenter {
 }
 
 .property-cards {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   justify-content: center;
   gap: 1rem;
   margin: 1rem;
-  flex-direction: column;
-  align-items: center;
 }
 
 .property-cards .card {
@@ -571,6 +574,26 @@ a img.aligncenter {
   object-fit: cover;
   object-position: center;
   margin-bottom: -4px;
+}
+
+.custom-login-page {
+  background-color: var(--primary);
+}
+
+.custom-login-page .form-container {
+  justify-self: center;
+  margin-top: 5rem;
+  gap: 2rem;
+  align-items: center;
+}
+
+.custom-login-page .form-container p {
+  display: flex;
+  gap: 10px;
+}
+
+.custom-login-page .form-container form {
+  align-items: center;
 }
 
 .side-nav {
@@ -761,7 +784,6 @@ a img.aligncenter {
 }
 
 .properties .property-cards {
-  justify-content: flex-start;
   margin: 0;
 }
 

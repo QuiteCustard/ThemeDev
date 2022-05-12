@@ -325,4 +325,35 @@ function install_plugins_notice() {
 }
 add_action('admin_notices', 'install_plugins_notice');
 
+
+// Login page customize
+
+
+function my_login() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(<?= esc_url( wp_get_attachment_url( get_theme_mod( 'custom_logo' )));?>);
+            height: 220px;
+            width: 75%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            text-align: center;
+            background-position: center;
+            border-radius:5px;
+        }
+
+        body.login {
+            background:white;
+        }
+
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login' );
+
+function my_login_logo_url() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+
 ?>
