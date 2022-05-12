@@ -24,3 +24,5 @@ This was a project I created in my third year of university. My assignment was t
    * Body width (1500px or full width)
 
 This theme takes use of ACF and allows a restrictive content management system.
+
+Please note that the forms displayed do not work as this was excluded from the assignment and were specified to not be done.
