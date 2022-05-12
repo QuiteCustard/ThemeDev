@@ -56,12 +56,13 @@
         justify-content: center;
         gap: 2rem;
 
-        & > label {
+        &>label {
             display: flex;
             flex-direction: column;
             gap: 2px;
 
-            input, select, textarea {
+            input,
+            select, textarea {
                 width: 100%;
                 padding: 0.5rem;
                 border: 1px solid #a7b3bb;
@@ -168,7 +169,7 @@
         color: white;
         position: relative;
 
-        > * {
+        >* {
             z-index: 1;
             padding: 1rem;
         }
@@ -190,7 +191,8 @@
             transition: 300ms opacity;
         }
 
-        &::before, &::after {
+        &::before,
+        &::after {
             position: absolute;
             height: 100%;
             width: 100%;
@@ -226,6 +228,7 @@
         align-items: stretch;
     }
 }
+
 
 .gallery-grid {
     display: grid;

@@ -2,7 +2,8 @@
     margin: 5px 20px 20px 0;
 }
 
-.aligncenter, div.aligncenter {
+.aligncenter,
+div.aligncenter {
     display: block;
     margin: 5px auto 5px auto;
 }
@@ -23,7 +24,9 @@
 }
 
 @media only screen and (max-width: 480px) {
-    .single .alignright, .single .alignleft {
+
+    .single .alignright,
+    .single .alignleft {
         float: none;
     }
 }

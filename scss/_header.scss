@@ -1,5 +1,5 @@
 .header {
-    background-color: var(--header);
+    background-color:var(--header);
     z-index: 10;
     transition: 300ms;
     border-bottom: var(--border-colour);
@@ -17,6 +17,7 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
+
 }
 
 .site-home {

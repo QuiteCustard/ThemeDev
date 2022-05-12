@@ -2,78 +2,81 @@
 
 // Add scripts and stylesheets
 function load_stylesheets() {
-    wp_enqueue_style('style', get_stylesheet_uri()); 
+    wp_enqueue_style( 'style', get_stylesheet_uri() ); 
 }
-add_action('wp_enqueue_scripts', 'load_stylesheets');
+add_action( 'wp_enqueue_scripts', 'load_stylesheets' );
 
 function samsTheme_setup() {
     // Add <title> tag support
-    add_theme_support('title-tag');  
+    add_theme_support( 'title-tag' );  
 
     // Add custom-logo support
-    add_theme_support('custom-logo');
+    add_theme_support( 'custom-logo' );
 
-    // Add menu support
-    register_nav_menus(array(
+     // Add menu support
+
+    register_nav_menus( array(
         'header'   => 'Header Menu',
         'footer'   => 'Footer menu',
-    ));
+    ) );
+
 }
-add_action('after_setup_theme', 'samsTheme_setup');
+add_action( 'after_setup_theme', 'samsTheme_setup');
 
 function samsTheme_register_sidebars() {
     // First footer widget
-    register_sidebar(array (
-        'name' => esc_html__('Footer Section One', 'samsTheme'),
-        'id' => 'footer-section-one',
-        'description' => esc_html__('Widgets added here would appear inside the first section of the footer', 'samsTheme'),
+    register_sidebar( array(
+        'name'          => esc_html__( 'Footer Section One', 'samsTheme' ),
+        'id'            => 'footer-section-one',
+        'description'   => esc_html__( 'Widgets added here would appear inside the first section of the footer', 'samsTheme' ),
         'before_widget' => '<aside>',
-        'after_widget' => '</aside>',
-        'before_title' => '<h4>',
-        'after_title' => '</h4>',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
     ));
 
     // Second footer widget
-    register_sidebar(array (
-        'name' => esc_html__('Footer Section Two', 'samsTheme'),
-        'id' => 'footer-section-two',
-        'description' => esc_html__('Widgets added here would appear inside the second section of the footer', 'samsTheme'),
+    register_sidebar( array(
+        'name'          => esc_html__( 'Footer Section Two', 'samsTheme' ),
+        'id'            => 'footer-section-two',
+        'description'   => esc_html__( 'Widgets added here would appear inside the second section of the footer', 'samsTheme' ),
         'before_widget' => '<aside>',
-        'after_widget' => '</aside>',
-        'before_title' => '<h4>',
-        'after_title' => '</h4>',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
     ));  
 
-     // Third footer widget
-     register_sidebar(array (
-        'name' => esc_html__('Footer Section Three', 'samsTheme'),
-        'id' => 'footer-section-three',
-        'description' => esc_html__('Widgets added here would appear inside the third section of the footer', 'samsTheme'),
+     // Second footer widget
+     register_sidebar( array(
+        'name'          => esc_html__( 'Footer Section Three', 'samsTheme' ),
+        'id'            => 'footer-section-three',
+        'description'   => esc_html__( 'Widgets added here would appear inside the third section of the footer', 'samsTheme' ),
         'before_widget' => '<aside>',
-        'after_widget' => '</aside>',
-        'before_title' => '<h4>',
-        'after_title'  => '</h4>',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
     ));  
-     // Fourth footer widget
-     register_sidebar(array (
-        'name' => esc_html__('Footer Section four', 'samsTheme'),
-        'id' => 'footer-section-four',
-        'description' => esc_html__('Widgets added here would appear inside the fourth section of the footer', 'samsTheme'),
+     // Second footer widget
+     register_sidebar( array(
+        'name'          => esc_html__( 'Footer Section four', 'samsTheme' ),
+        'id'            => 'footer-section-four',
+        'description'   => esc_html__( 'Widgets added here would appear inside the fourth section of the footer', 'samsTheme' ),
         'before_widget' => '<aside>',
-        'after_widget' => '</aside>',
-        'before_title' => '<h4>',
-        'after_title' => '</h4>',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
     ));  
 }
-    add_action('widgets_init', 'samsTheme_register_sidebars');	
+    add_action( 'widgets_init', 'samsTheme_register_sidebars' );	
 
-require_once (get_stylesheet_directory() . '/includes/customizer.php');
+require_once( get_stylesheet_directory() . '/includes/customizer.php' );
 
-function convertNumberToWord($num = false) {
+
+function convertNumberToWord($num = false)
+{
     if(! $num) {
         return false;
     }
-    
     $num = (int) $num;
 
     switch ($num) {
@@ -106,28 +109,27 @@ function convertNumberToWord($num = false) {
             break;
         default:
         return false;
+        break;
     }
 }
 
-// Get info about property (looks for all posts using a template)
 function getPropInfo($pageID) {
     $args = array (
         'post_type' => 'page',
         'posts_per_page' => -1,
-        'post__not_in' => array ($pageID), // Hide current property from list at end (Other properties list)
-        'meta_query' => array (
-            array (
+        'post__not_in' => array($pageID),
+        'meta_query' => array(
+            array(
                 'key' => '_wp_page_template',
                 'value' => 'templates/details_template.php'    
             )
         )
     );
-
-    $posts = get_posts($args);
+    $posts = get_posts( $args );
     $newArr = [];
 
-    if ($posts) {
-      foreach ($posts as $post) {
+    if ( $posts ) {
+      foreach ( $posts as $post ) {
         $newArr[$post->ID] = $post->post_title;
       }
     }
@@ -169,6 +171,7 @@ function bookingForm() {
 }
 
 function getIcons($id) {
+
     echo "<div class='icons'>";
     $icons = get_field("icons", $id);
 
@@ -215,13 +218,13 @@ function getIcons($id) {
 function propertyCards($pageID) {
     $the_pages = getPropInfo($pageID);
  
-     if ($the_pages) { ?>
+     if ( $the_pages ) { ?>
         <div class="property-cards">
          <?php
-         foreach ($the_pages as $id => $title) {
+         foreach ( $the_pages as $id => $title ) {
            $image = get_field("property_image", $id);
            ?>
-            <a class="card" style="background-image:url(<?= $image['url'] ?>)" href="<?= get_permalink($id) ?>">
+            <a class="card" style="background-image:url(<?= $image['url'] ?>)" href="<?= get_permalink( $id ) ?>">
                  <div class="icons-wrapper">
                  <?php getIcons($id); ?>
                  </div>
@@ -247,11 +250,9 @@ function getPropertyGallery($pageID) {
 
         for ($i = 0; $i < $count; $i++) {
             $img_num = "image_" . convertNumberToWord($i+1);
-
             if (!isset($gallery[$img_num]['url']) || empty($gallery[$img_num]['url'])) {
                 continue;
             }
-
             $img_url = $gallery[$img_num]['url'];
             $img_alt = $gallery[$img_num]['alt'];
     
@@ -266,20 +267,18 @@ function getPropertyGallery($pageID) {
 function getAllPropertiesGallery() {
     $the_pages = getPropInfo($pageID);
 
-    if ($the_pages) { ?>
+    if ( $the_pages ) { ?>
         <div class="gallery-grid">
         <?php
-        foreach ($the_pages as $id => $title) {
+        foreach ( $the_pages as $id => $title ) {
             $gallery = get_field('gallery', $id);
             $count = count($gallery);
 
             for ($i = 0; $i < $count; $i++) {
                 $img_num = "image_" . convertNumberToWord($i+1);
-
                 if (!isset($gallery[$img_num]['url']) || empty($gallery[$img_num]['url'])) {
                     continue;
                 }
-
                 $img_url = $gallery[$img_num]['url'];
                 $img_alt = $gallery[$img_num]['alt'];
         
@@ -295,8 +294,8 @@ function getAllPropertiesGallery() {
 function populateSelect($pageID) {
     $the_pages = getPropInfo($pageID);
 
-    if ($the_pages) {
-      foreach ($the_pages as $id => $title) {
+    if ( $the_pages ) {
+      foreach ( $the_pages as $id => $title ) {
         echo '<option value="'.$id.'">'.$title.'</option>';
       }
     }
@@ -304,12 +303,11 @@ function populateSelect($pageID) {
 
 function samsTheme_customScripts() {
     wp_enqueue_script('samsTheme-nav', get_stylesheet_directory_uri() . '/js/nav.js', array ('jquery',), '', true);
-}   
-add_action( 'wp_enqueue_scripts', 'samsTheme_customScripts' );
+  }   
+  add_action( 'wp_enqueue_scripts', 'samsTheme_customScripts' );
 
-function samsTheme_InstallPluginsNotices() {
+function install_plugins_notice() {
     global $pagenow;
-
     if ( $pagenow == 'index.php' ) {
 		if(! in_array('advanced-custom-fields/acf.php', apply_filters('active_plugins', get_option('active_plugins')))){ 
 		    echo 
@@ -317,7 +315,6 @@ function samsTheme_InstallPluginsNotices() {
             <p>Advanced Custom Fields must be installed for this theme to work correctly.</p>
             </div>';
 		}
-
         if(! in_array('site-reviews/site-reviews.php', apply_filters('active_plugins', get_option('active_plugins')))){ 
             echo 
             '<div class="notice notice-warning is-dismissible">
@@ -326,10 +323,13 @@ function samsTheme_InstallPluginsNotices() {
 }
     }
 }
-add_action('admin_notices', 'samsTheme_InstallPluginsNotices');
+add_action('admin_notices', 'install_plugins_notice');
+
 
 // Login page customize
-function samsTheme_Login() { ?>
+
+
+function my_login() { ?>
     <style type="text/css">
         #login h1 a, .login h1 a {
             background-image: url(<?= esc_url( wp_get_attachment_url( get_theme_mod( 'custom_logo' )));?>);
@@ -345,12 +345,15 @@ function samsTheme_Login() { ?>
         body.login {
             background:white;
         }
+
     </style>
 <?php }
-add_action('login_enqueue_scripts', 'samsTheme_Login');
+add_action( 'login_enqueue_scripts', 'my_login' );
 
-function samsTheme_logoURL() {
+function my_login_logo_url() {
     return home_url();
 }
-add_filter( 'login_headerurl', 'samsTheme_logoURL' );
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+
 ?>

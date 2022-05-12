@@ -2,7 +2,7 @@
 Theme Name: Sams Theme
 Author: Sam Edwards
 Description: Template for Cornish holidays
-Version: 1.0.0
+Version: 0.0.1
 Tags: responsive
 */
 
@@ -11,13 +11,15 @@ html {
     box-sizing: border-box;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: inherit;
 }
 
 * {
-    padding: 0;
-    margin: 0;
+ padding: 0;
+ margin: 0;
 }
 
 body {
