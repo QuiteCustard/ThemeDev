@@ -1,5 +1,4 @@
 <?php
-// Custom classes
 add_action('customize_register', 'samsTheme_customize_register');
 
 function samsTheme_customize_register($wp_customize)
@@ -10,9 +9,9 @@ function samsTheme_customize_register($wp_customize)
     {
         public function render_content()
         {
-?>
+        ?>
             <div class="separator" style="width:100%; height:1px; background-color: #d6d6d7;"></div>
-<?php
+        <?php
         }
     }
 
@@ -75,6 +74,7 @@ function samsTheme_customize_register($wp_customize)
         'active_callback' => 'background_option',
     )));
 
+    // Set which control to display
     function background_option($control)
     {
         $radio_setting = $control->manager->get_setting('samsTheme_background')->value();
@@ -171,6 +171,7 @@ function samsTheme_customize_register($wp_customize)
         'active_callback' => 'border_choice',
     )));
 
+    // Set whether to show control
     function border_choice($control)
     {
         $radio_setting = $control->manager->get_setting('samsTheme_border')->value();
@@ -379,10 +380,6 @@ function samsTheme_customize_register($wp_customize)
         'settings' => 'samsTheme_hover_colour',
     )));
 
-
-
-
-
     // Layout section in theme options panel
     $wp_customize->add_section('samsTheme_layout_options', array(
         'title' => __('Layout', 'samsTheme'),
@@ -406,7 +403,6 @@ function samsTheme_customize_register($wp_customize)
             'sticky' => __('Sticky', 'samsTheme'),
         ) ,
     ));
-
 
     // Setting for header width
     $wp_customize->add_setting('samsTheme_header_width', array(
@@ -484,7 +480,7 @@ function samsTheme_customize_register($wp_customize)
     ));
 }
 
-// Registers the Theme Customizer Preview with WordPress.
+// Allow live customization
 function samsTheme_customize_live_preview()
 {
     wp_enqueue_script('samsTheme-customize-js', get_stylesheet_directory_uri() . '/js/customizer.js', array(
@@ -497,7 +493,7 @@ add_action('customize_preview_init', 'samsTheme_customize_live_preview');
 // Generate Internal CSS from the values Customize Panel Settings
 function samsTheme_customization_css_colours()
 {
-    //Get Options from the Customize Panel
+    // Get Options from the Customize Panel
     $body_colour = get_option('samsTheme_body_colour');
     $primary_colour = get_option('samsTheme_primary_colour');
     $header_colour = get_option('samsTheme_header_colour');
@@ -507,7 +503,6 @@ function samsTheme_customization_css_colours()
     $link_colour = get_option('samsTheme_link_colour');
     $menu_link_colour = get_option('samsTheme_menu_link_colour');
     $hover_colour = get_option('samsTheme_hover_colour');
-
 
     if (get_theme_mod('samsTheme_background') == 'colour') {
         $body_colour = get_theme_mod('samsTheme_background_colour');

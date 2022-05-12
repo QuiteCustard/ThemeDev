@@ -1,32 +1,32 @@
 h1, h2, h3, h4, h5, h6, th {
-    color: var(--heading);
-    font-family: 'Montserrat', sans-serif;
-  }
+  color: var(--heading);
+  font-family: 'Montserrat', sans-serif;
+}
   
-  h1, h2, h3 {
-    font-weight: 400;
-  }
+h1, h2, h3 {
+  font-weight: 400;
+}
   
-  h1 {
-    font-size: clamp(30px, 4vw, 55px);
-  }
+h1 {
+  font-size: clamp(30px, 4vw, 55px);
+}
   
-  h2 {
-    font-size: 30px;
-  }
+h2 {
+  font-size: 30px;
+}
   
-  h3, th {
-    font-size: 20px;
-  }
+h3, th {
+  font-size: 20px;
+}
   
-  p, label, td {
-    font-size: 17px;
-    font-family: 'roboto', sans-serif;
-  }
+p, label, td {
+  font-size: 17px;
+  font-family: 'roboto', sans-serif;
+}
   
-  a {
-    color: var(--link);
-    text-decoration: none;
-    cursor: pointer;
-    font-family: 'roboto', sans-serif;
-  }
+a {
+  color: var(--link);
+  text-decoration: none;
+  cursor: pointer;
+  font-family: 'roboto', sans-serif;
+}
