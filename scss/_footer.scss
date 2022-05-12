@@ -1,5 +1,5 @@
 .footer {
-    background-color:var(--footer);
+    background-color: var(--footer);
     display: flex;
     flex-direction: column;
     padding:1rem;
@@ -17,20 +17,20 @@
     padding: 0.5rem;
     align-items: center;
     justify-content: space-evenly;
-
-    @media (min-width:1024px) {
-        flex-direction: row;
-    }
     
     &.centered {
         flex-direction: column;
         align-items: center;
     }
+    
     > * {
         padding:0.5rem;
     }
-}
 
+    @media (min-width:1024px) {
+        flex-direction: row;
+    }
+}
 
 .copyright {
     align-self: center;

@@ -110,6 +110,7 @@
         });
     });
 
+    // Shows a live preview of the header width
     wp.customize('samsTheme_header_width', function (layout) {
         layout.bind(function (updated_layout) {
             if (updated_layout != 'full-width') {
@@ -141,6 +142,4 @@
             }
         });
     });
-
-
 })(jQuery);

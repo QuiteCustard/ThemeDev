@@ -2,7 +2,6 @@ const nav = document.querySelector(".side-nav");
 const aside = document.querySelector(".aside");
 const menuBtns = document.querySelectorAll(".menu-button");
 const hasChildren = document.querySelectorAll(".menu-item-has-children");
-
 const closer = document.querySelector(".nav-closer");
 
 menuBtns.forEach(btn => {

@@ -1,18 +1,17 @@
 @import '_header';
 @import '_footer';
 
-.full-width>*:not(.full, .menu) {
+.full-width > *:not(.full, .menu) {
     max-width: 100%;
     margin: 0 2rem;
 }
 
-.boxed,
-.full-width>.boxed {
+.boxed, .full-width > .boxed {
     margin: auto;
     max-width: 1500px;
 }
 
-.full>img {
+.full > img {
     width: 100%;
     height: 100%;
 }
@@ -30,14 +29,14 @@
 .grid-container {
     display: grid;
     grid-template-areas:
-        "title"
-        "img"
-        "info"
-        "cta"
-        "details"
-        "gallery"
-        "reviews"
-        "other-properties";
+    "title"
+    "img"
+    "info"
+    "cta"
+    "details"
+    "gallery"
+    "reviews"
+    "other-properties";
     grid-auto-columns: 1fr;
     margin:0 1rem;
     column-gap: 2rem;
@@ -88,12 +87,12 @@
     @media (min-width:1024px) {
         grid-template-areas:
         "title title img"
-            "info info img"
-            "details details img"
-            "details details cta"
-            "gallery gallery gallery"
-            "reviews reviews reviews"
-            "other-properties other-properties other-properties";
+        "info info img"
+        "details details img"
+        "details details cta"
+        "gallery gallery gallery"
+        "reviews reviews reviews"
+        "other-properties other-properties other-properties";
         justify-items: unset;
     }
 }
