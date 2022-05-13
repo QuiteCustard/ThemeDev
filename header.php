@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <link rel="shortcut icon" href="<?= esc_url( wp_get_attachment_url( get_theme_mod( 'custom_logo' )));?>" type="image/x-icon">
     <?php wp_head();?>
 </head>
 <body>
