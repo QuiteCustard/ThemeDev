@@ -296,6 +296,7 @@ function samsTheme_InstallPluginsNotices() {
                 <p>Listo must be installed for this theme to work correctly.</p>
             </div>';
         } else {
+            // Add custom locations through Listo to CF7
             add_filter('listo_list_types', 'listo_addLocations');
 
             function listo_addLocations($list_types) {
@@ -308,7 +309,8 @@ function samsTheme_InstallPluginsNotices() {
                 public static function items() {
                     $pageID = "";
                     $the_pages = getPropInfo($pageID);
-
+                    
+                    // Loop through pages and add them to list if they are using a specific template set in getPropInfo
                     foreach ($the_pages as $id =>$title) {
                         $items [$id] = $title;
                     }
