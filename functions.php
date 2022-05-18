@@ -135,38 +135,6 @@ function getPropInfo($pageID) {
     return $newArr;
 }
 
-function bookingForm() {
-?>
-    <h2 class="heading"><?= get_field('heading'); ?></h2>
-    <form class="booking-form">
-                <label>
-                    Arrival Date:
-                    <input type="date"> 
-                </label>
-                <label>
-                    Depature date:
-                    <input type="date">
-                </label>
-                <label>
-                    How many people?
-                    <select>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>4+</option>
-                    </select>
-                </label>
-                <label>
-                    Where would you like to stay?
-                    <select>
-                    <?php populateSelect($pageID); ?>
-                    </select>
-                </label>
-                <button class="button">Search</button>
-            </form>
-            <?php
-}
 
 function getIcons($id) {
     echo "<div class='icons'>";
@@ -292,16 +260,6 @@ function getAllPropertiesGallery() {
     }
 }
 
-function populateSelect($pageID) {
-    $the_pages = getPropInfo($pageID);
-
-    if ($the_pages) {
-      foreach ($the_pages as $id => $title) {
-        echo '<option value="'.$id.'">'.$title.'</option>';
-      }
-    }
-}
-
 function samsTheme_customScripts() {
     wp_enqueue_script('samsTheme-nav', get_stylesheet_directory_uri() . '/js/nav.js', array ('jquery',), '', true);
 }   
@@ -314,7 +272,7 @@ function samsTheme_InstallPluginsNotices() {
 		if(! in_array('advanced-custom-fields/acf.php', apply_filters('active_plugins', get_option('active_plugins')))){ 
 		    echo 
             '<div class="notice notice-warning is-dismissible">
-            <p>Advanced Custom Fields must be installed for this theme to work correctly.</p>
+                <p>Advanced Custom Fields must be installed for this theme to work correctly.</p>
             </div>';
 		}
 
@@ -323,7 +281,45 @@ function samsTheme_InstallPluginsNotices() {
             '<div class="notice notice-warning is-dismissible">
             <p>Site reviews must be installed for this theme to work correctly.</p>
             </div>';
-}
+        }
+
+        if(! in_array('contact-form-7/wp-contact-form-7.php', apply_filters('active_plugins', get_option('active_plugins')))){
+            echo 
+            '<div class="notice notice-warning is-dismissible">
+            <p>Contact forms 7 must be installed for this theme to work correctly.</p>
+            </div>';
+        } 
+
+        if(! in_array('listo/listo.php', apply_filters('active_plugins', get_option('active_plugins')))){ 
+            echo 
+            '<div class="notice notice-warning is-dismissible">
+                <p>Listo must be installed for this theme to work correctly.</p>
+            </div>';
+        } else {
+            add_filter('listo_list_types', 'listo_addLocations');
+
+            function listo_addLocations($list_types) {
+                $list_types['locations'] = 'Listo_Locations';
+                return $list_types;
+            }
+
+            class Listo_Locations implements Listo {
+
+                public static function items() {
+                    $pageID = "";
+                    $the_pages = getPropInfo($pageID);
+
+                    foreach ($the_pages as $id =>$title) {
+                        $items [$id] = $title;
+                    }
+
+                    return $items;
+                }
+
+                public static function groups(){}
+            }
+
+        }
     }
 }
 add_action('admin_notices', 'samsTheme_InstallPluginsNotices');

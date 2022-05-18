@@ -327,7 +327,6 @@ a img.aligncenter {
 
 .full {
   width: 100%;
-  max-height: 100vh;
   object-fit: cover;
   object-position: center;
 }
@@ -355,20 +354,27 @@ a img.aligncenter {
   border-bottom: 2px solid var(--primary);
 }
 
-.form-container form {
+.form-container div p {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 2rem;
+  position: relative;
 }
 
-.form-container form > label {
+.form-container div p > br {
+  display: none;
+}
+
+.form-container div p > label {
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
 
-.form-container form > label input, .form-container form > label select, .form-container form > label textarea {
+.form-container div p > label input,
+.form-container div p > label select,
+.form-container div p > label textarea {
   width: 100%;
   padding: 0.5rem;
   border: 1px solid #a7b3bb;
@@ -376,12 +382,18 @@ a img.aligncenter {
   cursor: pointer;
 }
 
-.form-container form .button {
+.form-container div p .wpcf7-spinner {
+  position: absolute;
+  top: -30px;
+  right: 0;
+}
+
+.form-container div p .button {
   cursor: pointer;
 }
 
 @media (min-width: 1024px) {
-  .form-container form {
+  .form-container div p {
     justify-content: space-evenly;
   }
 }
@@ -458,8 +470,9 @@ a img.aligncenter {
 
 .property-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
   justify-content: center;
+  justify-items: center;
   gap: 1rem;
   margin: 1rem;
 }
@@ -718,7 +731,7 @@ a img.aligncenter {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  min-height: 76vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   gap: 4rem;

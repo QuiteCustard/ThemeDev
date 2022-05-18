@@ -15,21 +15,7 @@ while( have_posts() ): ?>
         </div>
         <div class="form-container">
             <h2 class="heading"><?= get_field('heading'); ?></h2>
-            <form class="content-form">
-                <label>Name:
-                    <input type="text" placeholder="Your name..." required>
-                    </label>
-                    <label>Email:
-                    <input type="email" placeholder="Your email..." required>
-                    </label>
-                    <label>Subject:
-                    <input type="text" placeholder="Subject..." required>
-                    </label>
-                    <label>Message:
-                    <textarea placeholder="Your message..." required></textarea>
-                    </label>
-                        <input class="button" type="submit" value="<?= get_field('button_text'); ?>">
-            </form>
+            <?php echo do_shortcode('[contact-form-7 id="391" title="Contact us"]'); ?>   
         </div>
     </div>
 </div>
