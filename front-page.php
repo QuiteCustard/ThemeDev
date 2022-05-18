@@ -8,7 +8,7 @@ while (have_posts()): ?>
     <div class="full header-img" style="background-image:url(<?php echo $image['url']; ?>">
         <h1 class="main-heading"><?php echo get_bloginfo('name'); ?></h1>
         <div class="form-container">
-            <h2><?= the_field("heading"); ?></h2>
+            <h2 class="heading"><?= the_field("heading"); ?></h2>
             <?php echo do_shortcode('[contact-form-7 id="16" title="Booking form"]'); ?>
         </div>
     </div>

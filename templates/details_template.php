@@ -91,7 +91,7 @@ get_header();
                     </div>
                     <div class="reviews">
                         <h2>Reviews</h2>
-                        <?php echo do_shortcode('[site_reviews assigned_posts=""]'); echo do_shortcode('[site_reviews_form assigned_posts=""]'); ?>
+                        <?php echo do_shortcode("[site_reviews assigned_posts='$pageID']"); echo do_shortcode("[site_reviews_form assigned_posts='$pageID']"); ?>
                     </div>
                     <div class="other-properties">
                         <h2>Other properties</h2>

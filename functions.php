@@ -273,6 +273,7 @@ function samsTheme_InstallPluginsNotices() {
 		    echo 
             '<div class="notice notice-warning is-dismissible">
                 <p>Advanced Custom Fields must be installed for this theme to work correctly.</p>
+                <a href="https://wordpress.org/plugins/advanced-custom-fields/">Download here:</a>
             </div>';
 		}
 
@@ -280,6 +281,7 @@ function samsTheme_InstallPluginsNotices() {
             echo 
             '<div class="notice notice-warning is-dismissible">
             <p>Site reviews must be installed for this theme to work correctly.</p>
+            <a href="https://wordpress.org/plugins/site-reviews/">Download here:</a>
             </div>';
         }
 
@@ -287,6 +289,7 @@ function samsTheme_InstallPluginsNotices() {
             echo 
             '<div class="notice notice-warning is-dismissible">
             <p>Contact forms 7 must be installed for this theme to work correctly.</p>
+            <a href="https://wordpress.org/plugins/contact-form-7/">Download here:</a>
             </div>';
         } 
 
@@ -294,37 +297,42 @@ function samsTheme_InstallPluginsNotices() {
             echo 
             '<div class="notice notice-warning is-dismissible">
                 <p>Listo must be installed for this theme to work correctly.</p>
+                <a href="https://wordpress.org/plugins/listo/">Download here:</a>
             </div>';
         } else {
-            // Add custom locations through Listo to CF7
-            add_filter('listo_list_types', 'listo_addLocations');
-
-            function listo_addLocations($list_types) {
-                $list_types['locations'] = 'Listo_Locations';
-                return $list_types;
-            }
-
-            class Listo_Locations implements Listo {
-
-                public static function items() {
-                    $pageID = "";
-                    $the_pages = getPropInfo($pageID);
-                    
-                    // Loop through pages and add them to list if they are using a specific template set in getPropInfo
-                    foreach ($the_pages as $id =>$title) {
-                        $items [$id] = $title;
-                    }
-
-                    return $items;
-                }
-
-                public static function groups(){}
-            }
-
+            
         }
     }
 }
 add_action('admin_notices', 'samsTheme_InstallPluginsNotices');
+
+
+    // Add custom locations through Listo to CF7
+    add_filter('listo_list_types', 'listo_addLocations');
+
+    function listo_addLocations($list_types) {
+        $list_types['locations'] = 'Listo_Locations';
+        return $list_types;
+    }
+
+    class Listo_Locations implements Listo {
+
+        public static function items() {
+            $pageID = "";
+            $the_pages = getPropInfo($pageID);
+            
+            // Loop through pages and add them to list if they are using a specific template set in getPropInfo
+            foreach ($the_pages as $id =>$title) {
+                $items [$id] = $title;
+            }
+
+            return $items;
+        }
+
+        public static function groups(){}
+    }
+
+
 
 // Login page customize
 function samsTheme_Login() { ?>
