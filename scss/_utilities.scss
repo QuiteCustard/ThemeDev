@@ -234,7 +234,11 @@
     }
 
     .button {
-        max-width: 75px;
+        max-width: 100px;
+
+        &:hover, &:focus {
+            color:black;
+        }
     }
 
     @media (min-width:1024px) {

@@ -20,7 +20,7 @@ get_header();
                     <div class="cta">
                         <h3>Interested?</h3>
                         <p>If you'd like more information on <?php the_title();?>, get in touch here:</p>
-                        <button class="button">Hi</button>
+                        <a class="button" href="<?php echo esc_url(home_url( '/' )); ?>">Contact us</a>
                     </div>
                     <div class="details">
                         <h2>Basic information</h2>
