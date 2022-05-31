@@ -16,7 +16,7 @@
 <!-- 7. WordPress will then import each of the posts, pages, comments, categories, etc. -->
 <!--    contained in this file into your site. -->
 
-	<!-- generator="WordPress/5.9.3" created="2022-05-18 15:47" -->
+	<!-- generator="WordPress/6.0" created="2022-05-31 16:24" -->
 <rss version="2.0"
 	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -29,7 +29,7 @@
 	<title>Cornish Holiday Cottages</title>
 	<link>http://localhost/cornishholidays</link>
 	<description>Just another WordPress site</description>
-	<pubDate>Wed, 18 May 2022 15:47:32 +0000</pubDate>
+	<pubDate>Tue, 31 May 2022 16:24:39 +0000</pubDate>
 	<language>en-US</language>
 	<wp:wxr_version>1.2</wp:wxr_version>
 	<wp:base_site_url>http://localhost/cornishholidays</wp:base_site_url>
@@ -38,7 +38,7 @@
 		<wp:author><wp:author_id>1</wp:author_id><wp:author_login><![CDATA[WS269058_8yvoewu5]]></wp:author_login><wp:author_email><![CDATA[ws269058@weston.ac.uk]]></wp:author_email><wp:author_display_name><![CDATA[WS269058_8yvoewu5]]></wp:author_display_name><wp:author_first_name><![CDATA[]]></wp:author_first_name><wp:author_last_name><![CDATA[]]></wp:author_last_name></wp:author>
 
 				
-	<generator>https://wordpress.org/?v=5.9.3</generator>
+	<generator>https://wordpress.org/?v=6.0</generator>
 
 		<item>
 		<title><![CDATA[Booking form]]></title>
@@ -49,21 +49,24 @@
 		<description></description>
 		<content:encoded><![CDATA[<label> Your name: [text* your-name]</label>
 <label> Your email: [email* your-email]</label>
-<label> Arrival date: [date* date-917]</label>
-<label> Departure Date: [date* date-9171]</label>
-<label> How many people?[select* menu-83 "1" "2" "3" "4" "4+"]</label>
+<label> Arrival date: [date* arrival]</label>
+<label> Departure Date: [date* departure]</label>
+<label> How many people?[select* people "1" "2" "3" "4" "4+"]</label>
 <label> Where would you like to stay? [select locations data:locations]</label>
+<label> Booking notes: [textarea notes] </label>
 [submit class:button "Send an enquiry"]
 1
-[_site_title] "[your-subject]"
+[_site_title] "Booking enquiry"
 [_site_title] <ws269058@weston.ac.uk>
 [_site_admin_email]
-From: [your-name] <[your-email]>
-Subject: [your-subject]
+Arrival date: [arrival]
+Departure date: [departure]
+Amount of people: [people]
+Location: [location]
 
-Message Body:
-[your-message]
+From: [your-name]
 
+Contact on [your-email]
 -- 
 This e-mail was sent from a contact form on [_site_title] ([_site_url])
 
@@ -109,8 +112,8 @@ The telephone number is invalid.]]></content:encoded>
 		<wp:post_id>16</wp:post_id>
 		<wp:post_date><![CDATA[2022-04-17 14:20:11]]></wp:post_date>
 		<wp:post_date_gmt><![CDATA[2022-04-17 14:20:11]]></wp:post_date_gmt>
-		<wp:post_modified><![CDATA[2022-05-18 15:25:43]]></wp:post_modified>
-		<wp:post_modified_gmt><![CDATA[2022-05-18 15:25:43]]></wp:post_modified_gmt>
+		<wp:post_modified><![CDATA[2022-05-31 16:15:48]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2022-05-31 16:15:48]]></wp:post_modified_gmt>
 		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
 		<wp:post_name><![CDATA[contact-form-1]]></wp:post_name>
@@ -124,20 +127,23 @@ The telephone number is invalid.]]></content:encoded>
 		<wp:meta_key><![CDATA[_form]]></wp:meta_key>
 		<wp:meta_value><![CDATA[<label> Your name: [text* your-name]</label>
 <label> Your email: [email* your-email]</label>
-<label> Arrival date: [date* date-917]</label>
-<label> Departure Date: [date* date-9171]</label>
-<label> How many people?[select* menu-83 "1" "2" "3" "4" "4+"]</label>
+<label> Arrival date: [date* arrival]</label>
+<label> Departure Date: [date* departure]</label>
+<label> How many people?[select* people "1" "2" "3" "4" "4+"]</label>
 <label> Where would you like to stay? [select locations data:locations]</label>
+<label> Booking notes: [textarea notes] </label>
 [submit class:button "Send an enquiry"]]]></wp:meta_value>
 		</wp:postmeta>
 							<wp:postmeta>
 		<wp:meta_key><![CDATA[_mail]]></wp:meta_key>
-		<wp:meta_value><![CDATA[a:9:{s:6:"active";b:1;s:7:"subject";s:30:"[_site_title] "[your-subject]"";s:6:"sender";s:37:"[_site_title] <ws269058@weston.ac.uk>";s:9:"recipient";s:19:"[_site_admin_email]";s:4:"body";s:163:"From: [your-name] <[your-email]>
-Subject: [your-subject]
+		<wp:meta_value><![CDATA[a:9:{s:6:"active";b:1;s:7:"subject";s:31:"[_site_title] "Booking enquiry"";s:6:"sender";s:37:"[_site_title] <ws269058@weston.ac.uk>";s:9:"recipient";s:19:"[_site_admin_email]";s:4:"body";s:219:"Arrival date: [arrival]
+Departure date: [departure]
+Amount of people: [people]
+Location: [location]
 
-Message Body:
-[your-message]
+From: [your-name]
 
+Contact on [your-email]
 -- 
 This e-mail was sent from a contact form on [_site_title] ([_site_url])";s:18:"additional_headers";s:0:"";s:11:"attachments";s:0:"";s:8:"use_html";b:0;s:13:"exclude_blank";b:0;}]]></wp:meta_value>
 		</wp:postmeta>
