@@ -1,9 +1,10 @@
 /*
-Theme Name: Sams Theme
+Theme Name: SamsTheme
 Author: Sam Edwards
-Description: Template for Cornish holidays
+Description: Cornish Holiday Cottages
 Version: 1.0.0
-Tags: responsive
+Tags: Responsive
+
 */
 html {
   scroll-behavior: smooth;
@@ -251,7 +252,14 @@ a img.aligncenter {
 
 .grid-container {
   display: grid;
-  grid-template-areas: "title" "img" "info" "cta" "details" "gallery" "reviews" "other-properties";
+  grid-template-areas: "title"
+ "img"
+ "info"
+ "cta"
+ "details"
+ "gallery"
+ "reviews"
+ "other-properties";
   grid-auto-columns: 1fr;
   margin: 0 1rem;
   column-gap: 2rem;
@@ -302,7 +310,13 @@ a img.aligncenter {
 
 @media (min-width: 1024px) {
   .grid-container {
-    grid-template-areas: "title title img" "info info img" "details details img" "details details cta" "gallery gallery gallery" "reviews reviews reviews" "other-properties other-properties other-properties";
+    grid-template-areas: "title title img"
+ "info info img"
+ "details details img"
+ "details details cta"
+ "gallery gallery gallery"
+ "reviews reviews reviews"
+ "other-properties other-properties other-properties";
     justify-items: unset;
   }
 }
